@@ -3,125 +3,244 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ChaeYoung “Klara” Kim | Cybersecurity Portfolio</title>
+  <title>ChaeYoung “Klara” Kim — Security Portfolio</title>
   <meta name="description" content="Portfolio of ChaeYoung Klara Kim, Cyber Risk & Compliance Consultant and Robot/IoT/CPS Security Researcher." />
   <meta name="keywords" content="Cybersecurity, Cyber Risk, Compliance, IT Audit, ISMS, SOC2, HIPAA, Robot Security, IoT Security, CPS Security, Threat Modeling, Privacy" />
   <meta name="author" content="ChaeYoung Klara Kim" />
 
-  <meta property="og:title" content="ChaeYoung “Klara” Kim | Cybersecurity Portfolio" />
+  <meta property="og:title" content="ChaeYoung “Klara” Kim — Security Portfolio" />
   <meta property="og:description" content="Cyber Risk & Compliance Consultant · Robot/IoT/CPS Security Researcher" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://klarakim.github.io" />
   <meta property="og:image" content="https://klarakim.github.io/assets/og-image.png" />
 
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Sans+KR:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
   <link rel="stylesheet" href="./style.css" />
   <script defer src="./script.js"></script>
 </head>
 <body>
-  <header class="site-header">
-    <a class="logo" href="#home">Klara Kim</a>
-    <button class="nav-toggle" aria-label="Open navigation" aria-expanded="false">☰</button>
-    <nav class="site-nav">
-      <a href="#about">About</a>
-      <a href="#experience">Experience</a>
-      <a href="#projects">Projects</a>
-      <a href="#publications">Publications</a>
-      <a href="#talks">Talks</a>
-      <a href="#contact">Contact</a>
+  <a class="skip-link" href="#home">skip to content</a>
+
+  <header class="site-header" id="siteHeader">
+    <a class="logo" href="#home"><span class="bracket">[</span>klara.kim<span class="bracket">]</span></a>
+
+    <button class="nav-toggle" id="navToggle" aria-label="Open navigation" aria-expanded="false">
+      <span id="navToggleLabel">menu</span>
+    </button>
+
+    <nav class="site-nav" id="siteNav">
+      <a href="#about" data-section="about">~/about</a>
+      <a href="#education" data-section="education">~/education</a>
+      <a href="#experience" data-section="experience">~/experience</a>
+      <a href="#projects" data-section="projects">~/projects</a>
+      <a href="#publications" data-section="publications">~/publications</a>
+      <a href="#talks" data-section="talks">~/talks</a>
+      <a href="#contact" data-section="contact">~/contact</a>
     </nav>
+
+    <div class="path-indicator" aria-hidden="true">
+      <span class="path-label">you are here</span>
+      <span class="path-value" id="pathValue">~/home</span>
+    </div>
   </header>
 
   <main id="home">
     <section class="hero section">
-      <div class="hero-content">
-        <p class="eyebrow">Cyber Risk & Compliance · Robot Security · IT Audit</p>
-        <h1>ChaeYoung “Klara” Kim</h1>
-        <p class="hero-subtitle">
-          Cyber Risk & Compliance Consultant and Robot/IoT/CPS Security Researcher.
-        </p>
-        <p class="hero-copy">
-          I bridge enterprise cyber risk consulting and applied security research for robots,
-          IoT, and cyber-physical systems.
-        </p>
-        <div class="hero-actions">
-          <a class="button primary" href="mailto:bobconsultantcy@gmail.com">Contact Me</a>
-          <a class="button" href="https://www.linkedin.com/in/chaeyoung-klara-kim/" target="_blank" rel="noreferrer">LinkedIn</a>
-          <a class="button" href="https://securescue.tistory.com/" target="_blank" rel="noreferrer">Security Blog</a>
+      <div class="hero-grid">
+        <div class="hero-main">
+          <p class="eyebrow">// cyber risk & compliance — robot · iot · cps security research</p>
+          <h1 class="hero-title">ChaeYoung<span class="accent-amber"> “Klara”</span> Kim</h1>
+          <p class="hero-subtitle">Cyber Risk &amp; Compliance Consultant <span class="sep">/</span> Robot·IoT·CPS Security Researcher</p>
+          <p class="hero-copy">
+            I work at the intersection of enterprise compliance audit and applied security research —
+            translating ISMS, SOC&nbsp;2, and HIPAA controls into practice by day, and probing how those
+            same systems hold up in robots, IoT, and cyber-physical environments on the side.
+          </p>
+          <div class="hero-actions">
+            <a class="button primary" href="mailto:bobconsultantcy@gmail.com">contact_me()</a>
+            <a class="button" href="https://www.linkedin.com/in/chaeyoung-klara-kim/" target="_blank" rel="noreferrer">linkedin</a>
+            <a class="button" href="https://securescue.tistory.com/" target="_blank" rel="noreferrer">blog</a>
+          </div>
+          <ul class="hero-tags">
+            <li>ISMS-P</li>
+            <li>SOC 2</li>
+            <li>HIPAA</li>
+            <li>STRIDE</li>
+            <li>LINDDUN</li>
+            <li>BoB 13th</li>
+          </ul>
         </div>
-      </div>
-      <div class="hero-card" aria-label="Profile summary">
-        <div class="initials">CK</div>
-        <h2>Focus Areas</h2>
-        <ul>
-          <li>Cyber Risk & Compliance</li>
-          <li>ISMS · SOC 2 · HIPAA IT Audit</li>
-          <li>Robot · IoT · CPS Security</li>
-          <li>Threat Modeling · Privacy</li>
-        </ul>
+
+        <div class="terminal-window" role="group" aria-label="Interactive terminal, try typing a command">
+          <div class="terminal-titlebar">
+            <span class="dot dot-red" aria-hidden="true"></span>
+            <span class="dot dot-amber" aria-hidden="true"></span>
+            <span class="dot dot-green" aria-hidden="true"></span>
+            <span class="terminal-title">klara@security: ~</span>
+          </div>
+          <div class="terminal-body" id="terminalBody">
+            <p class="t-line"><span class="t-prompt">klara@security:~$</span> whoami</p>
+            <p class="t-line t-output">ChaeYoung “Klara” Kim — Cyber Risk &amp; Compliance Consultant / Robot·IoT·CPS Security Researcher</p>
+            <p class="t-line"><span class="t-prompt">klara@security:~$</span> cat motto.txt</p>
+            <p class="t-line t-output">Bridging compliance audit and offensive security research, one control at a time.</p>
+            <p class="t-line t-hint">type <code>help</code> to see available commands ↓</p>
+          </div>
+          <div class="terminal-inputline">
+            <span class="t-prompt">klara@security:~$</span>
+            <input
+              id="terminalInput"
+              type="text"
+              autocomplete="off"
+              autocapitalize="off"
+              spellcheck="false"
+              aria-label="Terminal command input"
+              placeholder="type a command..."
+            />
+          </div>
+        </div>
       </div>
     </section>
 
-    <section id="about" class="section two-column">
+    <section id="about" class="section two-column reveal">
       <div>
-        <p class="section-label">About</p>
-        <h2>Security consultant with research depth in emerging cyber-physical systems.</h2>
+        <p class="section-label">// about.md</p>
+        <h2>One person, two threat models.</h2>
       </div>
       <div class="section-body">
         <p>
-          I am a cybersecurity professional with experience across enterprise security compliance,
-          IT audit, web security, robot security, IoT security, privacy threat modeling, and AI-related
-          security research.
+          I split my time between two ways of asking the same question — “where does this actually break?”
+          By day, I support ISMS-P certification, SOC&nbsp;2 and HIPAA-related IT audit, and third-party
+          security assessments, reading controls the way an auditor has to: literally, evidentially, line by line.
         </p>
         <p>
-          My work combines evidence-based security control review with applied research in systems
-          where digital security directly affects physical environments, connected services, and user privacy.
+          Outside client work, I research how those same assumptions hold up in service robots,
+          IoT-connected spaces, and cyber-physical systems — threat modeling with STRIDE and LINDDUN,
+          and occasionally turning audit findings into proof-of-concept attack paths just to see if the
+          paperwork was right.
+        </p>
+        <p>
+          That habit of moving between two systems started early. I learned Linux in a campus user group
+          before I learned how to write an audit finding, and spent a year leading newsletter coverage for
+          a national security training program before I ever sat in a client meeting. I'm still most
+          comfortable where compliance and offense meet.
         </p>
       </div>
     </section>
 
-    <section class="section">
-      <p class="section-label">Core Expertise</p>
-      <div class="grid cards">
-        <article class="card">
-          <h3>Cyber Risk & Compliance</h3>
-          <p>ISMS certification support, SOC 2 and HIPAA-related IT audit, third-party security assessment, and control review.</p>
+    <section id="education" class="section reveal">
+      <p class="section-label">// education.log</p>
+      <h2>From a Linux user group to client floors.</h2>
+
+      <div class="edu-timeline">
+        <article class="edu-item">
+          <div class="edu-marker edu-marker-school" aria-hidden="true"></div>
+          <div class="edu-content">
+            <span class="edu-stage">Elementary</span>
+            <h3>Seoul OO Elementary School</h3>
+            <p class="edu-meta">Seoul, South Korea</p>
+          </div>
         </article>
-        <article class="card">
-          <h3>IT Audit & Assurance</h3>
-          <p>Authentication, access control, password policy, administrative privilege, and evidence-based control operation review.</p>
+
+        <article class="edu-item">
+          <div class="edu-marker edu-marker-school" aria-hidden="true"></div>
+          <div class="edu-content">
+            <span class="edu-stage">Elementary, abroad</span>
+            <h3>Hillside Elementary School</h3>
+            <p class="edu-meta">Hillside, New Jersey, USA</p>
+          </div>
         </article>
-        <article class="card">
-          <h3>Robot / IoT / CPS Security</h3>
-          <p>Threat modeling and risk assessment for service robots, autonomous systems, IoT-connected spaces, and cyber-physical systems.</p>
+
+        <article class="edu-item">
+          <div class="edu-marker edu-marker-school" aria-hidden="true"></div>
+          <div class="edu-content">
+            <span class="edu-stage">Elementary, returned</span>
+            <h3>Seoul OO Elementary School</h3>
+            <p class="edu-meta">Seoul, South Korea</p>
+          </div>
         </article>
-        <article class="card">
-          <h3>Threat Modeling & Privacy</h3>
-          <p>STRIDE, LINDDUN, privacy threat analysis, security requirement derivation, and risk-based assessment.</p>
+
+        <article class="edu-item">
+          <div class="edu-marker edu-marker-school" aria-hidden="true"></div>
+          <div class="edu-content">
+            <span class="edu-stage">Middle School</span>
+            <h3><span lang="ko">대왕중학교</span> <span class="edu-en">(Daewang Middle School)</span></h3>
+            <p class="edu-meta">Seoul, South Korea</p>
+          </div>
+        </article>
+
+        <article class="edu-item">
+          <div class="edu-marker edu-marker-school" aria-hidden="true"></div>
+          <div class="edu-content">
+            <span class="edu-stage">High School</span>
+            <h3><span lang="ko">창덕여자고등학교</span> <span class="edu-en">(Changdeok Girls' High School)</span></h3>
+            <p class="edu-meta">Seoul, South Korea</p>
+          </div>
+        </article>
+
+        <article class="edu-item">
+          <div class="edu-marker edu-marker-uni" aria-hidden="true"></div>
+          <div class="edu-content">
+            <span class="edu-stage">University</span>
+            <h3><span lang="ko">서울여자대학교</span> <span class="edu-en">(Seoul Women's University)</span></h3>
+            <p class="edu-meta">Seoul, South Korea</p>
+            <ul class="edu-detail">
+              <li>SWLUG (Seoul Women's University Linux User Group), 25th cohort</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="edu-item">
+          <div class="edu-marker edu-marker-program" aria-hidden="true"></div>
+          <div class="edu-content">
+            <span class="edu-stage">Training Program</span>
+            <h3>BoB <span class="edu-en">(Best of the Best), 13th Cohort</span></h3>
+            <p class="edu-meta">KITRI — Korea's national elite cybersecurity talent program</p>
+          </div>
+        </article>
+
+        <article class="edu-item">
+          <div class="edu-marker edu-marker-program" aria-hidden="true"></div>
+          <div class="edu-content">
+            <span class="edu-stage">Community Leadership</span>
+            <h3>BoB Newsletter</h3>
+            <p class="edu-meta">Reporter Team Lead, 6th cohort <span class="sep">→</span> Editor-in-Chief, 7th cohort</p>
+          </div>
         </article>
       </div>
     </section>
 
-    <section id="experience" class="section">
-      <p class="section-label">Selected Experience</p>
+    <section id="experience" class="section reveal">
+      <p class="section-label">// experience.log</p>
+      <h2>Selected Experience</h2>
+
       <div class="timeline">
         <article class="timeline-item">
-          <span class="date">Dec 2025 – Present</span>
+          <div class="timeline-meta">
+            <span class="date">Dec 2025 – Present</span>
+            <span class="role-tag">Compliance · IT Audit</span>
+          </div>
           <div>
-            <h3>Deloitte Anjin LLC · Cyber Security Consultant</h3>
-            <p>T&T Cyber Risk & Compliance</p>
+            <h3>Deloitte Anjin LLC <span class="edu-en">— Cyber Security Consultant</span></h3>
+            <p class="timeline-sub">T&amp;T Cyber Risk &amp; Compliance</p>
             <ul>
               <li>Support ISMS initial and re-certification consulting projects for client-confidential global brands.</li>
               <li>Participate in third-party security assessment and IT audit projects.</li>
-              <li>Support SOC 2 and HIPAA-related IT audit work for a Korean listed company’s U.S. subsidiary.</li>
+              <li>Support SOC&nbsp;2 and HIPAA-related IT audit work for a Korean listed company's U.S. subsidiary.</li>
             </ul>
           </div>
         </article>
 
         <article class="timeline-item">
-          <span class="date">Mar 2025 – Jun 2025</span>
+          <div class="timeline-meta">
+            <span class="date">Mar 2025 – Jun 2025</span>
+            <span class="role-tag">Product · WAPPLES</span>
+          </div>
           <div>
-            <h3>PentaSecurity · Intern</h3>
-            <p>Planning Team 1 / WAPPLES Product</p>
+            <h3>PentaSecurity <span class="edu-en">— Intern</span></h3>
+            <p class="timeline-sub">Planning Team 1 / WAPPLES Product</p>
             <ul>
               <li>Prepared web vulnerability analysis reports and customer-facing documentation.</li>
               <li>Analyzed PCI-DSS v4.0.1 and other compliance requirements for WAPPLES product strategy.</li>
@@ -131,10 +250,13 @@
         </article>
 
         <article class="timeline-item">
-          <span class="date">Jan 2024 – Feb 2024</span>
+          <div class="timeline-meta">
+            <span class="date">Jan 2024 – Feb 2024</span>
+            <span class="role-tag">Policy · Mobility</span>
+          </div>
           <div>
-            <h3>Kakao Mobility · Intern</h3>
-            <p>CR Strategy Office / External Affairs Team</p>
+            <h3>Kakao Mobility <span class="edu-en">— Intern</span></h3>
+            <p class="timeline-sub">CR Strategy Office / External Affairs Team</p>
             <ul>
               <li>Authored a report on cyber security and data protection in the autonomous vehicle and mobility industry.</li>
             </ul>
@@ -142,10 +264,13 @@
         </article>
 
         <article class="timeline-item">
-          <span class="date">Jul 2023 – Aug 2023</span>
+          <div class="timeline-meta">
+            <span class="date">Jul 2023 – Aug 2023</span>
+            <span class="role-tag">CI/CD · Cloud</span>
+          </div>
           <div>
-            <h3>Ericsson-LG R&D · Software Engineering Intern</h3>
-            <p>CI/CD Testing Team / vCU7 Team</p>
+            <h3>Ericsson-LG R&amp;D <span class="edu-en">— Software Engineering Intern</span></h3>
+            <p class="timeline-sub">CI/CD Testing Team / vCU7 Team</p>
             <ul>
               <li>Built a Jenkins-based build pipeline to support namespace cleanup in a Kubernetes environment.</li>
               <li>Gained experience in agile development, CI/CD workflows, and internal deployment processes.</li>
@@ -155,10 +280,21 @@
       </div>
     </section>
 
-    <section id="projects" class="section">
-      <p class="section-label">Featured Projects</p>
-      <div class="grid project-grid">
-        <article class="card project">
+    <section id="projects" class="section reveal">
+      <p class="section-label">// projects.dir</p>
+      <h2>Featured Projects</h2>
+
+      <div class="filter-bar" role="group" aria-label="Filter projects by category">
+        <button class="filter-chip is-active" data-filter="all">all</button>
+        <button class="filter-chip" data-filter="robot">robot security</button>
+        <button class="filter-chip" data-filter="space">space security</button>
+        <button class="filter-chip" data-filter="threat-intel">threat intel</button>
+        <button class="filter-chip" data-filter="ai">ai security</button>
+        <button class="filter-chip" data-filter="research">security research</button>
+      </div>
+
+      <div class="grid project-grid" id="projectGrid">
+        <article class="card project" data-tags="robot">
           <span class="tag">Team Lead · Robot Security</span>
           <h3>Service Robot Security Consulting</h3>
           <p>
@@ -172,7 +308,7 @@
           </ul>
         </article>
 
-        <article class="card project">
+        <article class="card project" data-tags="space">
           <span class="tag">Ongoing · Space Security</span>
           <h3>SATCR4K CubeSat Security Research</h3>
           <p>
@@ -185,7 +321,7 @@
           </ul>
         </article>
 
-        <article class="card project">
+        <article class="card project" data-tags="threat-intel">
           <span class="tag">Threat Intelligence</span>
           <h3>APT Group Profiling Framework</h3>
           <p>
@@ -198,7 +334,7 @@
           </ul>
         </article>
 
-        <article class="card project">
+        <article class="card project" data-tags="ai">
           <span class="tag">AI Security · Team Lead</span>
           <h3>AI Synthetic Voice Detection System</h3>
           <p>
@@ -210,12 +346,31 @@
             <li>Software patent application and academic publication</li>
           </ul>
         </article>
+
+        <article class="card project" data-tags="research">
+          <span class="tag">Independent Research</span>
+          <h3>Comply-to-Pwn</h3>
+          <p>
+            A framework — and accompanying CLI tool — that converts compliance audit artifacts into
+            attack paths, mapping audit evidence to realistic attack chains rather than checklists.
+          </p>
+          <ul>
+            <li>Built <code>comply2pwn</code>, a Python CLI with evidence loaders, ATT&amp;CK normalization, blast-radius scoring, and attack graph rendering</li>
+            <li>Packaged as a DEF CON-style research talk, with a full 22-slide deck walking through the framework</li>
+          </ul>
+        </article>
       </div>
     </section>
 
-    <section id="publications" class="section">
-      <p class="section-label">Selected Publications</p>
+    <section id="publications" class="section reveal">
+      <p class="section-label">// publications.bib</p>
+      <h2>Selected Publications</h2>
       <div class="list">
+        <article class="list-item">
+          <span class="tag tag-status">In Preparation</span>
+          <h3>R-SPS: A Security, Privacy, and Safety Assessment Framework for Service Robots</h3>
+          <p>Target venue: ETRI Journal. Co-authors: MinYoung Park, HunHee Lee, Kyounggon Kim.</p>
+        </article>
         <article class="list-item">
           <h3>FORESIGHT: A Unified Framework for Threat Modeling and Risk Assessment in Robotics and IoT</h3>
           <p>NDSS Symposium co-located workshop SDIoTSec Poster, San Diego, Feb. 2025.</p>
@@ -235,9 +390,9 @@
       </div>
     </section>
 
-    <section id="talks" class="section two-column">
+    <section id="talks" class="section two-column reveal">
       <div>
-        <p class="section-label">Talks & Awards</p>
+        <p class="section-label">// talks_and_awards.log</p>
         <h2>Research presentations, lectures, conference roles, and awards.</h2>
       </div>
       <div class="section-body compact-list">
@@ -259,18 +414,23 @@
       </div>
     </section>
 
-    <section id="contact" class="section contact">
-      <p class="section-label">Contact</p>
+    <section id="contact" class="section contact reveal">
+      <p class="section-label">// contact.sh</p>
       <h2>Open to research collaboration, cybersecurity projects, talks, and mentoring.</h2>
       <div class="contact-actions">
         <a class="button primary" href="mailto:bobconsultantcy@gmail.com">bobconsultantcy@gmail.com</a>
         <a class="button" href="https://www.linkedin.com/in/chaeyoung-klara-kim/" target="_blank" rel="noreferrer">LinkedIn</a>
         <a class="button" href="https://securescue.tistory.com/" target="_blank" rel="noreferrer">Blog</a>
       </div>
+      <div class="tlp-badge">
+        <span class="tlp-swatch" aria-hidden="true"></span>
+        <span>This page is rated <strong>TLP:CLEAR</strong> — public, no restrictions, share freely.</span>
+      </div>
     </section>
   </main>
 
   <footer class="site-footer">
+    <p class="footer-prompt"><span class="t-prompt">klara@security:~$</span> exit<span class="cursor" aria-hidden="true"></span></p>
     <p>© <span id="year"></span> ChaeYoung “Klara” Kim. All rights reserved.</p>
   </footer>
 </body>
