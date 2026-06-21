@@ -546,6 +546,19 @@ h3 {
   max-width: 720px;
 }
 
+.edu-group-label {
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--cyan);
+  margin: 0 0 1rem;
+}
+
+.edu-group-label-second {
+  margin-top: 2.4rem;
+}
+
 .edu-item { position: relative; }
 
 .edu-marker {
