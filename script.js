@@ -1,77 +1,39 @@
 // ---------- Footer year ----------
 const year = document.querySelector("#year");
-if (year) {
-  year.textContent = new Date().getFullYear();
+if (year) year.textContent = new Date().getFullYear();
+
+// ---------- Panel switching ----------
+const navItems = document.querySelectorAll(".nav-item");
+const panels = document.querySelectorAll(".panel");
+const topbarPath = document.querySelector("#topbarPath");
+const sidebar = document.querySelector("#appSidebar");
+const sidebarToggle = document.querySelector("#sidebarToggle");
+const sidebarToggleLabel = document.querySelector("#sidebarToggleLabel");
+
+function showPanel(name) {
+  panels.forEach((p) => p.classList.toggle("is-active", p.dataset.panel === name));
+  navItems.forEach((n) => n.classList.toggle("is-active", n.dataset.panel === name));
+  if (topbarPath) topbarPath.textContent = `~/${name}`;
+
+  const activePanel = document.querySelector(`.panel[data-panel="${name}"]`);
+  if (activePanel) activePanel.scrollTop = 0;
+
+  if (sidebar && sidebar.classList.contains("is-open")) {
+    sidebar.classList.remove("is-open");
+    if (sidebarToggle) sidebarToggle.setAttribute("aria-expanded", "false");
+  }
 }
 
-// ---------- Mobile nav toggle ----------
-const navToggle = document.querySelector("#navToggle");
-const navToggleLabel = document.querySelector("#navToggleLabel");
-const siteNav = document.querySelector("#siteNav");
+navItems.forEach((item) => {
+  item.addEventListener("click", () => showPanel(item.dataset.panel));
+});
 
-if (navToggle && siteNav) {
-  navToggle.addEventListener("click", () => {
-    const isOpen = siteNav.classList.toggle("open");
-    navToggle.setAttribute("aria-expanded", String(isOpen));
-    if (navToggleLabel) navToggleLabel.textContent = isOpen ? "close" : "menu";
+if (sidebarToggle && sidebar) {
+  sidebarToggle.addEventListener("click", () => {
+    const isOpen = sidebar.classList.toggle("is-open");
+    sidebarToggle.setAttribute("aria-expanded", String(isOpen));
+    if (sidebarToggleLabel) sidebarToggleLabel.textContent = isOpen ? "close" : "menu";
   });
-
-  siteNav.querySelectorAll("a").forEach((link) => {
-    link.addEventListener("click", () => {
-      siteNav.classList.remove("open");
-      navToggle.setAttribute("aria-expanded", "false");
-      if (navToggleLabel) navToggleLabel.textContent = "menu";
-    });
-  });
-}
-
-// ---------- Scrollspy + path indicator ----------
-const sections = document.querySelectorAll("main section[id]");
-const navLinks = document.querySelectorAll(".site-nav a");
-const pathValue = document.querySelector("#pathValue");
-
-if (sections.length && "IntersectionObserver" in window) {
-  const spy = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          const id = entry.target.getAttribute("id");
-
-          navLinks.forEach((link) => {
-            link.classList.toggle("is-active", link.dataset.section === id);
-          });
-
-          if (pathValue) {
-            pathValue.textContent = `~/${id}`;
-          }
-        }
-      });
-    },
-    { rootMargin: "-45% 0px -45% 0px", threshold: 0 }
-  );
-
-  sections.forEach((section) => spy.observe(section));
-}
-
-// ---------- Reveal on scroll ----------
-const revealEls = document.querySelectorAll(".reveal");
-
-if (revealEls.length && "IntersectionObserver" in window) {
-  const revealObserver = new IntersectionObserver(
-    (entries, obs) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("is-visible");
-          obs.unobserve(entry.target);
-        }
-      });
-    },
-    { threshold: 0.12 }
-  );
-
-  revealEls.forEach((el) => revealObserver.observe(el));
-} else {
-  revealEls.forEach((el) => el.classList.add("is-visible"));
 }
 
 // ---------- Project filter ----------
@@ -82,21 +44,61 @@ filterChips.forEach((chip) => {
   chip.addEventListener("click", () => {
     filterChips.forEach((c) => c.classList.remove("is-active"));
     chip.classList.add("is-active");
-
     const filter = chip.dataset.filter;
-
     projectCards.forEach((card) => {
       const tags = (card.dataset.tags || "").split(" ");
-      const show = filter === "all" || tags.includes(filter);
-      card.classList.toggle("is-hidden", !show);
+      card.classList.toggle("is-hidden", !(filter === "all" || tags.includes(filter)));
     });
   });
 });
 
-// ---------- Interactive terminal ----------
-const terminalBody = document.querySelector("#terminalBody");
+// ---------- Terminal overlay ----------
+const terminalOverlay = document.querySelector("#terminalOverlay");
+const terminalOpenBtn = document.querySelector("#terminalOpenBtn");
+const heroTerminalBtn = document.querySelector("#heroTerminalBtn");
+const terminalCloseBtn = document.querySelector("#terminalCloseBtn");
 const terminalInput = document.querySelector("#terminalInput");
+const terminalBody = document.querySelector("#terminalBody");
 
+function openTerminal() {
+  if (!terminalOverlay) return;
+  terminalOverlay.hidden = false;
+  if (terminalInput) terminalInput.focus();
+}
+
+function closeTerminal() {
+  if (!terminalOverlay) return;
+  terminalOverlay.hidden = true;
+}
+
+[terminalOpenBtn, heroTerminalBtn].forEach((btn) => {
+  if (btn) btn.addEventListener("click", openTerminal);
+});
+
+if (terminalCloseBtn) terminalCloseBtn.addEventListener("click", closeTerminal);
+
+if (terminalOverlay) {
+  terminalOverlay.addEventListener("click", (e) => {
+    if (e.target === terminalOverlay) closeTerminal();
+  });
+}
+
+document.addEventListener("keydown", (e) => {
+  const tag = document.activeElement ? document.activeElement.tagName : "";
+  const typing = tag === "INPUT" || tag === "TEXTAREA";
+
+  if (e.key === "`" && !typing) {
+    e.preventDefault();
+    if (terminalOverlay && terminalOverlay.hidden) openTerminal();
+    else closeTerminal();
+  }
+
+  if (e.key === "Escape" && terminalOverlay && !terminalOverlay.hidden) {
+    closeTerminal();
+  }
+});
+
+// ---------- Terminal commands ----------
 function printLine(text, className) {
   const p = document.createElement("p");
   p.className = `t-line ${className || ""}`.trim();
@@ -117,22 +119,7 @@ function printCommandEcho(cmd) {
   terminalBody.scrollTop = terminalBody.scrollHeight;
 }
 
-function scrollToSection(id) {
-  const target = document.getElementById(id);
-  if (target) {
-    setTimeout(() => target.scrollIntoView({ behavior: "smooth", block: "start" }), 250);
-  }
-}
-
-const NAV_TARGETS = {
-  about: "about",
-  education: "education",
-  experience: "experience",
-  projects: "projects",
-  publications: "publications",
-  talks: "talks",
-  contact: "contact",
-};
+const NAV_TARGETS = ["home", "about", "education", "experience", "projects", "publications", "talks", "contact"];
 
 const COMMANDS = {
   help() {
@@ -140,7 +127,7 @@ const COMMANDS = {
     printLine("  help                 show this list", "t-output");
     printLine("  whoami               who is klara.kim", "t-output");
     printLine("  about / education / experience / projects / publications / talks / contact", "t-output");
-    printLine("                       scroll to that section", "t-output");
+    printLine("                       jump to that panel", "t-output");
     printLine("  ls                   list site sections", "t-output");
     printLine("  neofetch             system info, security-consultant edition", "t-output");
     printLine("  cat resume.txt       quick summary", "t-output");
@@ -153,7 +140,7 @@ const COMMANDS = {
     );
   },
   ls() {
-    printLine(Object.keys(NAV_TARGETS).join("  "), "t-output");
+    printLine(NAV_TARGETS.join("  "), "t-output");
   },
   neofetch() {
     printLine("klara@security", "t-output");
@@ -161,8 +148,8 @@ const COMMANDS = {
     printLine("Role:    Cyber Risk & Compliance Consultant", "t-output");
     printLine("Focus:   ISMS-P · SOC 2 · HIPAA · Robot/IoT/CPS Security", "t-output");
     printLine("Tools:   STRIDE, LINDDUN, Python, comply2pwn", "t-output");
-    printLine("Origin:  SWLUG 25th → BoB 13th → Deloitte", "t-output");
-    printLine("Uptime:  Dec 2025 – present", "t-output");
+    printLine("Origin:  SWLUG 25th -> BoB 13th -> Deloitte", "t-output");
+    printLine("Uptime:  Dec 2025 - present", "t-output");
   },
   resume() {
     printLine(
@@ -181,7 +168,6 @@ const COMMANDS = {
 function handleCommand(raw) {
   const cmd = raw.trim();
   if (!cmd) return;
-
   printCommandEcho(cmd);
 
   const lower = cmd.toLowerCase();
@@ -192,9 +178,10 @@ function handleCommand(raw) {
     return;
   }
 
-  if (NAV_TARGETS[lower]) {
+  if (NAV_TARGETS.includes(lower)) {
     printLine(`opening ~/${lower} ...`, "t-output");
-    scrollToSection(NAV_TARGETS[lower]);
+    showPanel(lower);
+    setTimeout(closeTerminal, 350);
     return;
   }
 
