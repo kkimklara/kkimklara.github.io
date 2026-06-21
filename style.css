@@ -674,6 +674,12 @@ h3 {
   margin-top: 1rem;
 }
 
+.project-link {
+  margin-top: 1rem;
+  padding: 0.45rem 0.8rem;
+  font-size: 0.78rem;
+}
+
 .pipe-step rect {
   fill: var(--bg-alt);
   stroke: var(--line-strong);
