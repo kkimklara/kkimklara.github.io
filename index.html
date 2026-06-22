@@ -174,7 +174,7 @@
               <div class="edu-content">
                 <span class="edu-stage">Elementary</span>
                 <h3>Seoul, South Korea <span class="sep">+</span> Hillside Elementary School</h3>
-                <p class="edu-meta">3 years abroad at Hillside Elementary School, Hillside, New Jersey, USA</p>
+                <p class="edu-meta">A year abroad at Hillside Elementary School, Hillside, New Jersey, USA</p>
               </div>
             </article>
 
@@ -257,7 +257,6 @@
                   <li>Support ISMS initial and re-certification consulting projects for client-confidential global brands.</li>
                   <li>Participate in third-party security assessment and IT audit projects.</li>
                   <li>Support SOC&nbsp;2 and HIPAA-related IT audit work for a Korean listed company's U.S. subsidiary.</li>
-                  <li>Testing ITGC controls for SOX, Sarbanes-Oxley Act</li>
                 </ul>
               </div>
             </article>
@@ -265,11 +264,11 @@
             <article class="timeline-item">
               <div class="timeline-meta">
                 <span class="date">Mar 2025 – Jun 2025</span>
-                <span class="role-tag">Product · WAF </span>
+                <span class="role-tag">Product · WAPPLES</span>
               </div>
               <div>
                 <h3>PentaSecurity <span class="edu-en">— Intern</span></h3>
-                <p class="timeline-sub">Planning Team / WAPPLES Product</p>
+                <p class="timeline-sub">Planning Team 1 / WAPPLES Product</p>
                 <ul>
                   <li>Prepared web vulnerability analysis reports and customer-facing documentation.</li>
                   <li>Analyzed PCI-DSS v4.0.1 and other compliance requirements for WAPPLES product strategy.</li>
@@ -334,7 +333,7 @@
               <ul>
                 <li>LG Electronics service robot security consulting</li>
                 <li>Robot security model publication contribution with KIRIA and KISA</li>
-                <li>Policy and standardization discussion around service robot cyber security, ISO 13482</li>
+                <li>Policy and standardization discussion around service robot cyber security</li>
               </ul>
             </article>
 
@@ -381,7 +380,46 @@
               </ul>
             </article>
 
-          
+            <article class="card project" data-tags="research">
+              <svg class="project-icon" viewBox="0 0 24 24"><path d="M4 5h16v14H4z" /><path d="M8 9l-2 3 2 3M16 9l2 3-2 3M13 8l-2 8" /></svg>
+              <span class="tag">Independent Research</span>
+              <h3>Comply-to-Pwn</h3>
+              <p>
+                A framework — and accompanying CLI tool — that converts compliance audit artifacts into
+                attack paths, mapping audit evidence to realistic attack chains rather than checklists.
+              </p>
+              <ul>
+                <li>Built <code>comply2pwn</code>, a Python CLI with evidence loaders, ATT&amp;CK normalization, blast-radius scoring, and attack graph rendering</li>
+                <li>Packaged as a DEF CON-style research talk, with a full 22-slide deck walking through the framework</li>
+              </ul>
+
+              <svg class="pipeline-diagram" viewBox="0 0 520 70" role="img" aria-label="Pipeline diagram: evidence loaders to ATT&CK normalization to blast radius scoring to attack graph">
+                <g class="pipe-step">
+                  <rect x="4" y="14" width="112" height="42" rx="6" />
+                  <text x="60" y="40" text-anchor="middle">evidence</text>
+                </g>
+                <path class="pipe-arrow" d="M120 35h24" marker-end="url(#arrow)" />
+                <g class="pipe-step">
+                  <rect x="148" y="14" width="118" height="42" rx="6" />
+                  <text x="207" y="40" text-anchor="middle">ATT&amp;CK norm.</text>
+                </g>
+                <path class="pipe-arrow" d="M270 35h24" marker-end="url(#arrow)" />
+                <g class="pipe-step">
+                  <rect x="298" y="14" width="108" height="42" rx="6" />
+                  <text x="352" y="40" text-anchor="middle">blast radius</text>
+                </g>
+                <path class="pipe-arrow" d="M410 35h24" marker-end="url(#arrow)" />
+                <g class="pipe-step">
+                  <rect x="438" y="14" width="78" height="42" rx="6" />
+                  <text x="477" y="40" text-anchor="middle">graph</text>
+                </g>
+                <defs>
+                  <marker id="arrow" markerWidth="8" markerHeight="8" refX="5" refY="3" orient="auto">
+                    <path d="M0,0 L6,3 L0,6 z" />
+                  </marker>
+                </defs>
+              </svg>
+            </article>
           </div>
         </section>
 
@@ -486,6 +524,38 @@
         />
       </div>
     </div>
+  </div>
+
+  <!-- ===== Robot mascot ===== -->
+  <div id="mascot" aria-hidden="true">
+    <div id="mascot-bubble" class="mascot-bubble"></div>
+    <svg id="mascot-svg" viewBox="0 0 48 60" xmlns="http://www.w3.org/2000/svg">
+      <!-- Antenna -->
+      <line id="antenna-stem" x1="24" y1="10" x2="24" y2="4" stroke="#7ed99a" stroke-width="2" stroke-linecap="round"/>
+      <circle id="antenna-ball" cx="24" cy="3" r="2.5" fill="#7ed99a"/>
+      <!-- Head -->
+      <rect x="10" y="10" width="28" height="22" rx="6" fill="#161b20" stroke="#5fd4e3" stroke-width="1.6"/>
+      <!-- Eyes -->
+      <rect id="eye-l" x="14" y="17" width="7" height="7" rx="2" fill="#5fd4e3"/>
+      <rect id="eye-r" x="27" y="17" width="7" height="7" rx="2" fill="#5fd4e3"/>
+      <!-- Eye pupils -->
+      <rect id="pupil-l" x="16" y="19" width="3" height="3" rx="1" fill="#0a0c0e"/>
+      <rect id="pupil-r" x="29" y="19" width="3" height="3" rx="1" fill="#0a0c0e"/>
+      <!-- Mouth -->
+      <rect id="mouth" x="16" y="27" width="16" height="3" rx="1.5" fill="#ffb454"/>
+      <!-- Neck -->
+      <rect x="20" y="32" width="8" height="4" rx="2" fill="#1e252c"/>
+      <!-- Body -->
+      <rect x="8" y="36" width="32" height="20" rx="7" fill="#161b20" stroke="#5fd4e3" stroke-width="1.4"/>
+      <!-- Chest light -->
+      <circle id="chest-light" cx="24" cy="46" r="4" fill="#ffb454" opacity="0.85"/>
+      <!-- Arms -->
+      <rect id="arm-l" x="1" y="38" width="7" height="12" rx="3.5" fill="#161b20" stroke="#5fd4e3" stroke-width="1.2"/>
+      <rect id="arm-r" x="40" y="38" width="7" height="12" rx="3.5" fill="#161b20" stroke="#5fd4e3" stroke-width="1.2"/>
+      <!-- Legs -->
+      <rect x="13" y="55" width="8" height="5" rx="2.5" fill="#1e252c" stroke="#5fd4e3" stroke-width="1"/>
+      <rect x="27" y="55" width="8" height="5" rx="2.5" fill="#1e252c" stroke="#5fd4e3" stroke-width="1"/>
+    </svg>
   </div>
 </body>
 </html>

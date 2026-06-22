@@ -201,3 +201,126 @@ if (terminalInput) {
     }
   });
 }
+
+// ===== Robot mascot =====
+(function () {
+  const mascot    = document.getElementById('mascot');
+  const mascotSvg = document.getElementById('mascot-svg');
+  const bubble    = document.getElementById('mascot-bubble');
+  if (!mascot || !mascotSvg || !bubble) return;
+
+  // Position: mascot starts bottom-right (fixed via CSS).
+  // We'll lerp toward the mouse when it moves.
+  let targetX = window.innerWidth  - 80;
+  let targetY = window.innerHeight - 90;
+  let currentX = targetX;
+  let currentY = targetY;
+  let lastX = targetX;
+  let facingRight = false;
+  let isFollowing = false;
+  let idleTimer = null;
+  let bubbleTimer = null;
+
+  const LERP_SPEED = 0.08;
+
+  const QUIPS = [
+    'rm -rf / ? no thanks.',
+    'sudo make me a sandwich',
+    '404: sleep not found',
+    '// TODO: world domination',
+    'segfault? not today.',
+    'nmap -A everywhere',
+    'cat /etc/feelings.txt',
+    'if (compliant) pwn()',
+    'BoB 13th 💪',
+    'ISMS ✓  robots? 🤔',
+    'chmod 777 my heart',
+    'git commit -m "vibes"',
+    'threat model everything',
+    'TLP:CUTE',
+  ];
+
+  function lerp(a, b, t) { return a + (b - a) * t; }
+
+  // Eyes blink
+  let blinkTimeout;
+  function scheduleBlink() {
+    const delay = 2000 + Math.random() * 3000;
+    blinkTimeout = setTimeout(() => {
+      mascotSvg.classList.add('mascot-blink');
+      setTimeout(() => {
+        mascotSvg.classList.remove('mascot-blink');
+        scheduleBlink();
+      }, 120);
+    }, delay);
+  }
+  scheduleBlink();
+
+  // Show a speech bubble
+  function showBubble(text) {
+    clearTimeout(bubbleTimer);
+    bubble.textContent = text;
+    bubble.classList.add('is-visible');
+    mascot.classList.add('is-excited');
+    bubbleTimer = setTimeout(() => {
+      bubble.classList.remove('is-visible');
+      mascot.classList.remove('is-excited');
+    }, 2800);
+  }
+
+  // Click → quip
+  mascot.style.pointerEvents = 'auto';
+  mascot.style.cursor = 'pointer';
+  mascot.addEventListener('click', () => {
+    const q = QUIPS[Math.floor(Math.random() * QUIPS.length)];
+    showBubble(q);
+    // tiny bounce
+    mascotSvg.style.transition = 'transform 120ms ease';
+    mascotSvg.style.transform = 'translateY(-10px) scale(1.08)';
+    setTimeout(() => { mascotSvg.style.transform = ''; }, 200);
+  });
+
+  // Mouse move → set target
+  document.addEventListener('mousemove', (e) => {
+    targetX = e.clientX - 28;
+    targetY = e.clientY - 70;
+    isFollowing = true;
+
+    clearTimeout(idleTimer);
+    idleTimer = setTimeout(() => { isFollowing = false; }, 2000);
+  });
+
+  // Occasional idle quip every ~18s
+  setInterval(() => {
+    if (!bubble.classList.contains('is-visible')) {
+      const idleQuips = ['...', 'still here 👀', 'click me!', '*beep boop*', 'scanning…'];
+      showBubble(idleQuips[Math.floor(Math.random() * idleQuips.length)]);
+    }
+  }, 18000);
+
+  // RAF loop
+  function tick() {
+    if (isFollowing) {
+      currentX = lerp(currentX, targetX, LERP_SPEED);
+      currentY = lerp(currentY, targetY, LERP_SPEED);
+      mascot.style.left   = currentX + 'px';
+      mascot.style.top    = currentY + 'px';
+      mascot.style.bottom = 'auto';
+      mascot.style.right  = 'auto';
+      mascot.style.position = 'fixed';
+
+      // Flip to face movement direction
+      const dx = currentX - lastX;
+      if (Math.abs(dx) > 0.3) {
+        const shouldFaceRight = dx > 0;
+        if (shouldFaceRight !== facingRight) {
+          facingRight = shouldFaceRight;
+          mascotSvg.style.transform = `scaleX(${facingRight ? -1 : 1})`;
+        }
+      }
+      lastX = currentX;
+    }
+    requestAnimationFrame(tick);
+  }
+  requestAnimationFrame(tick);
+})();

@@ -911,3 +911,111 @@ h3 {
   .hero-actions { flex-direction: column; }
   .button { width: 100%; }
 }
+
+/* ===== Robot mascot ===== */
+
+#mascot {
+  position: fixed;
+  bottom: 1.4rem;
+  right: 1.6rem;
+  z-index: 200;
+  pointer-events: none;
+  user-select: none;
+  filter: drop-shadow(0 4px 18px rgba(95, 212, 227, 0.3));
+  transition: filter 200ms ease;
+}
+
+#mascot.is-excited {
+  filter: drop-shadow(0 4px 28px rgba(255, 180, 84, 0.55));
+}
+
+#mascot-svg {
+  width: 54px;
+  height: 68px;
+  display: block;
+  transform-origin: bottom center;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  #mascot-svg {
+    animation: mascot-idle 3.2s ease-in-out infinite;
+  }
+
+  #antenna-ball {
+    animation: antenna-pulse 3.2s ease-in-out infinite;
+  }
+
+  #chest-light {
+    animation: chest-pulse 2s ease-in-out infinite;
+  }
+}
+
+@keyframes mascot-idle {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  30%       { transform: translateY(-4px) rotate(-1.5deg); }
+  70%       { transform: translateY(-4px) rotate(1.5deg); }
+}
+
+@keyframes antenna-pulse {
+  0%, 100% { fill: #7ed99a; r: 2.5; }
+  50%       { fill: #ffb454; r: 3.2; }
+}
+
+@keyframes chest-pulse {
+  0%, 100% { opacity: 0.85; }
+  50%       { opacity: 0.35; }
+}
+
+/* Blink animation applied via JS */
+.mascot-blink #eye-l,
+.mascot-blink #eye-r {
+  height: 1px !important;
+  y: 20px !important;
+}
+
+/* Speech bubble */
+.mascot-bubble {
+  position: absolute;
+  bottom: calc(100% + 10px);
+  right: 0;
+  background: var(--panel);
+  border: 1px solid var(--amber);
+  border-radius: 10px 10px 2px 10px;
+  padding: 0.5rem 0.75rem;
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  color: var(--amber);
+  white-space: nowrap;
+  max-width: 220px;
+  white-space: normal;
+  line-height: 1.45;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+  pointer-events: none;
+  opacity: 0;
+  transform: translateY(6px) scale(0.9);
+  transform-origin: bottom right;
+  transition: opacity 180ms ease, transform 180ms ease;
+}
+
+.mascot-bubble.is-visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.mascot-bubble::after {
+  content: "";
+  position: absolute;
+  bottom: -7px;
+  right: 16px;
+  width: 12px;
+  height: 7px;
+  background: var(--amber);
+  clip-path: polygon(0 0, 100% 0, 100% 100%);
+}
+
+/* When following mouse, mascot moves */
+#mascot.is-following {
+  bottom: auto;
+  right: auto;
+  position: fixed;
+}
