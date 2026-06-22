@@ -1,561 +1,618 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-mode="researcher">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ChaeYoung “Klara” Kim — Security Portfolio</title>
+  <title>ChaeYoung "Klara" Kim — Security Portfolio</title>
   <meta name="description" content="Portfolio of ChaeYoung Klara Kim, Cyber Risk & Compliance Consultant and Robot/IoT/CPS Security Researcher." />
-  <meta name="keywords" content="Cybersecurity, Cyber Risk, Compliance, IT Audit, ISMS, SOC2, HIPAA, Robot Security, IoT Security, CPS Security, Threat Modeling, Privacy" />
   <meta name="author" content="ChaeYoung Klara Kim" />
-
-  <meta property="og:title" content="ChaeYoung “Klara” Kim — Security Portfolio" />
-  <meta property="og:description" content="Cyber Risk & Compliance Consultant · Robot/IoT/CPS Security Researcher" />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://klarakim.github.io" />
-
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Sans+KR:wght@400;500;600;700&display=swap" rel="stylesheet" />
-
   <link rel="stylesheet" href="./style.css" />
   <script defer src="./script.js"></script>
 </head>
 <body>
-  <a class="skip-link" href="#mainPanel">skip to content</a>
+<a class="skip-link" href="#mainPanel">skip to content</a>
 
-  <div class="app-shell">
-    <!-- ===== Top bar ===== -->
-    <header class="app-topbar">
-      <div class="topbar-left">
-        <span class="dot dot-red" aria-hidden="true"></span>
-        <span class="dot dot-amber" aria-hidden="true"></span>
-        <span class="dot dot-green" aria-hidden="true"></span>
-        <span class="topbar-title">klara@security: <span id="topbarPath">~/home</span></span>
-      </div>
-      <button class="sidebar-toggle" id="sidebarToggle" aria-label="Toggle navigation" aria-expanded="false">
-        <span id="sidebarToggleLabel">menu</span>
-      </button>
-      <div class="tlp-pill">
-        <span class="tlp-swatch" aria-hidden="true"></span>TLP:CLEAR
-      </div>
-    </header>
+<div class="app-shell">
 
-    <div class="app-body">
-      <!-- ===== Sidebar ===== -->
-      <aside class="app-sidebar" id="appSidebar">
-        <div class="sidebar-id">
-          <div class="sidebar-avatar">CK</div>
-          <div>
-            <p class="sidebar-name">Klara Kim</p>
-            <p class="sidebar-role">Cyber Risk &amp; Robot Security</p>
+  <!-- ===== Topbar ===== -->
+  <header class="app-topbar">
+    <div class="topbar-left">
+      <span class="dot dot-red"></span>
+      <span class="dot dot-amber"></span>
+      <span class="dot dot-green"></span>
+      <span class="topbar-title">klara@security: <span id="topbarPath">~/home</span></span>
+    </div>
+
+    <div class="mode-toggle" role="group" aria-label="View mode">
+      <button class="mode-btn is-active" data-mode="researcher">researcher</button>
+      <span class="mode-sep">/</span>
+      <button class="mode-btn" data-mode="auditor">auditor</button>
+    </div>
+
+    <button class="sidebar-toggle" id="sidebarToggle" aria-label="Toggle navigation" aria-expanded="false">menu</button>
+
+    <div class="tlp-pill">
+      <span class="tlp-swatch"></span>TLP:CLEAR
+    </div>
+  </header>
+
+  <div class="app-body">
+
+    <!-- ===== Sidebar ===== -->
+    <aside class="app-sidebar" id="appSidebar">
+      <div class="sidebar-id">
+        <div class="sidebar-avatar">CK</div>
+        <div>
+          <p class="sidebar-name">Klara Kim</p>
+          <p class="sidebar-role" id="sidebarRole">Security Researcher</p>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav">
+        <button class="nav-item is-active" data-panel="home">
+          <svg class="nav-icon" viewBox="0 0 24 24"><path d="M4 5h16v14H4z"/><path d="M7 9l3 3-3 3M13 15h4"/></svg>
+          <span class="nav-label" data-r="home" data-a="home">home</span>
+        </button>
+        <button class="nav-item" data-panel="journey">
+          <svg class="nav-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a13 13 0 0 1 0 18A13 13 0 0 1 12 3z"/></svg>
+          <span class="nav-label" data-r="journey.log" data-a="journey">journey</span>
+        </button>
+        <button class="nav-item" data-panel="about">
+          <svg class="nav-icon" viewBox="0 0 24 24"><circle cx="12" cy="8" r="3.4"/><path d="M5 20c1.2-4 4-6 7-6s5.8 2 7 6"/></svg>
+          <span class="nav-label" data-r="about.md" data-a="about">about</span>
+        </button>
+        <button class="nav-item" data-panel="education">
+          <svg class="nav-icon" viewBox="0 0 24 24"><path d="M2 9l10-4 10 4-10 4-10-4z"/><path d="M6 11v5c0 1.3 2.7 2.5 6 2.5s6-1.2 6-2.5v-5"/></svg>
+          <span class="nav-label" data-r="education.log" data-a="education">education</span>
+        </button>
+        <button class="nav-item" data-panel="experience">
+          <svg class="nav-icon" viewBox="0 0 24 24"><rect x="3" y="8" width="18" height="11" rx="1.4"/><path d="M8 8V6a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
+          <span class="nav-label" data-r="experience.log" data-a="experience">experience</span>
+        </button>
+        <button class="nav-item" data-panel="projects">
+          <svg class="nav-icon" viewBox="0 0 24 24"><path d="M3 7h6l2 2h10v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V7z"/></svg>
+          <span class="nav-label" data-r="projects.dir" data-a="projects">projects</span>
+        </button>
+        <button class="nav-item" data-panel="publications">
+          <svg class="nav-icon" viewBox="0 0 24 24"><path d="M4 4.8c2.4-.9 5-.9 7 .6v13c-2-1.5-4.6-1.5-7-.6V4.8z"/><path d="M20 4.8c-2.4-.9-5-.9-7 .6v13c2-1.5 4.6-1.5 7-.6V4.8z"/></svg>
+          <span class="nav-label" data-r="publications.bib" data-a="publications">publications</span>
+        </button>
+        <button class="nav-item" data-panel="talks">
+          <svg class="nav-icon" viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3M9 21h6"/></svg>
+          <span class="nav-label" data-r="talks.log" data-a="talks &amp; awards">talks &amp; awards</span>
+        </button>
+        <button class="nav-item" data-panel="contact">
+          <svg class="nav-icon" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="1.6"/><path d="M3 6.5l9 6.5 9-6.5"/></svg>
+          <span class="nav-label" data-r="contact.sh" data-a="contact">contact</span>
+        </button>
+      </nav>
+
+      <div class="sidebar-footer">
+        <a href="mailto:bobconsultantcy@gmail.com" class="sidebar-link" aria-label="Email">✉</a>
+        <a href="https://www.linkedin.com/in/chaeyoung-klara-kim/" target="_blank" rel="noreferrer" class="sidebar-link">in</a>
+        <a href="https://securescue.tistory.com/" target="_blank" rel="noreferrer" class="sidebar-link">✎</a>
+        <button class="sidebar-link terminal-trigger" id="terminalOpenBtn" title="Open terminal ( ` )">&gt;_</button>
+      </div>
+    </aside>
+
+    <!-- ===== Panels ===== -->
+    <main class="app-main" id="mainPanel">
+
+      <!-- HOME — Q&A -->
+      <section class="panel is-active" id="panel-home" data-panel="home">
+        <div class="qa-layout">
+          <div class="qa-intro">
+            <div class="qa-avatar">
+              <svg viewBox="0 0 48 60" xmlns="http://www.w3.org/2000/svg">
+                <line x1="24" y1="10" x2="24" y2="4" stroke="#7ed99a" stroke-width="2" stroke-linecap="round"/>
+                <circle cx="24" cy="3" r="2.5" fill="#7ed99a"/>
+                <rect x="10" y="10" width="28" height="22" rx="6" fill="#161b20" stroke="#5fd4e3" stroke-width="1.6"/>
+                <rect x="14" y="17" width="7" height="7" rx="2" fill="#5fd4e3"/>
+                <rect x="27" y="17" width="7" height="7" rx="2" fill="#5fd4e3"/>
+                <rect x="16" y="19" width="3" height="3" rx="1" fill="#0a0c0e"/>
+                <rect x="29" y="19" width="3" height="3" rx="1" fill="#0a0c0e"/>
+                <rect x="16" y="27" width="16" height="3" rx="1.5" fill="#ffb454"/>
+                <rect x="20" y="32" width="8" height="4" rx="2" fill="#1e252c"/>
+                <rect x="8" y="36" width="32" height="20" rx="7" fill="#161b20" stroke="#5fd4e3" stroke-width="1.4"/>
+                <circle cx="24" cy="46" r="4" fill="#ffb454" opacity="0.85"/>
+                <rect x="1" y="38" width="7" height="12" rx="3.5" fill="#161b20" stroke="#5fd4e3" stroke-width="1.2"/>
+                <rect x="40" y="38" width="7" height="12" rx="3.5" fill="#161b20" stroke="#5fd4e3" stroke-width="1.2"/>
+                <rect x="13" y="55" width="8" height="5" rx="2.5" fill="#1e252c" stroke="#5fd4e3" stroke-width="1"/>
+                <rect x="27" y="55" width="8" height="5" rx="2.5" fill="#1e252c" stroke="#5fd4e3" stroke-width="1"/>
+              </svg>
+            </div>
+            <div class="qa-greeting">
+              <p class="qa-name">ChaeYoung <span class="accent-amber">"Klara"</span> Kim</p>
+              <p class="qa-tagline" id="qaTagline">Cyber Risk &amp; Compliance · Robot/IoT/CPS Security</p>
+              <p class="qa-hint">Ask me anything below ↓</p>
+            </div>
+          </div>
+
+          <div class="qa-thread" id="qaThread" aria-live="polite"></div>
+
+          <div class="qa-chips" id="qaChips">
+            <button class="qa-chip" data-q="who">Who are you?</button>
+            <button class="qa-chip" data-q="deloitte">What do you do at Deloitte?</button>
+            <button class="qa-chip" data-q="comply">What's Comply-to-Pwn?</button>
+            <button class="qa-chip" data-q="robot">Tell me about robot security</button>
+            <button class="qa-chip" data-q="bob">What is BoB?</button>
+            <button class="qa-chip" data-q="now">What are you working on now?</button>
           </div>
         </div>
+      </section>
 
-        <nav class="sidebar-nav" aria-label="Section navigation">
-          <button class="nav-item is-active" data-panel="home">
-            <svg class="nav-icon" viewBox="0 0 24 24"><path d="M4 5h16v14H4z" /><path d="M7 9l3 3-3 3M13 15h4" /></svg>
-            <span>home</span>
-          </button>
-          <button class="nav-item" data-panel="about">
-            <svg class="nav-icon" viewBox="0 0 24 24"><circle cx="12" cy="8" r="3.4" /><path d="M5 20c1.2-4 4-6 7-6s5.8 2 7 6" /></svg>
-            <span>about.md</span>
-          </button>
-          <button class="nav-item" data-panel="education">
-            <svg class="nav-icon" viewBox="0 0 24 24"><path d="M2 9l10-4 10 4-10 4-10-4z" /><path d="M6 11v5c0 1.3 2.7 2.5 6 2.5s6-1.2 6-2.5v-5" /></svg>
-            <span>education.log</span>
-          </button>
-          <button class="nav-item" data-panel="experience">
-            <svg class="nav-icon" viewBox="0 0 24 24"><rect x="3" y="8" width="18" height="11" rx="1.4" /><path d="M8 8V6a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" /></svg>
-            <span>experience.log</span>
-          </button>
-          <button class="nav-item" data-panel="projects">
-            <svg class="nav-icon" viewBox="0 0 24 24"><path d="M3 7h6l2 2h10v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V7z" /></svg>
-            <span>projects.dir</span>
-          </button>
-          <button class="nav-item" data-panel="publications">
-            <svg class="nav-icon" viewBox="0 0 24 24"><path d="M4 4.8c2.4-.9 5-.9 7 .6v13c-2-1.5-4.6-1.5-7-.6V4.8z" /><path d="M20 4.8c-2.4-.9-5-.9-7 .6v13c2-1.5 4.6-1.5 7-.6V4.8z" /></svg>
-            <span>publications.bib</span>
-          </button>
-          <button class="nav-item" data-panel="talks">
-            <svg class="nav-icon" viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="11" rx="3" /><path d="M5 11a7 7 0 0 0 14 0M12 18v3M9 21h6" /></svg>
-            <span>talks.log</span>
-          </button>
-          <button class="nav-item" data-panel="contact">
-            <svg class="nav-icon" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="1.6" /><path d="M3 6.5l9 6.5 9-6.5" /></svg>
-            <span>contact.sh</span>
-          </button>
-        </nav>
+      <!-- JOURNEY MAP -->
+      <section class="panel" id="panel-journey" data-panel="journey">
+        <p class="section-label" data-r="// journey.log" data-a="Journey"></p>
+        <h2>Where I've been.</h2>
 
-        <div class="sidebar-footer">
-          <a href="mailto:bobconsultantcy@gmail.com" class="sidebar-link" aria-label="Email">✉</a>
-          <a href="https://www.linkedin.com/in/chaeyoung-klara-kim/" target="_blank" rel="noreferrer" class="sidebar-link" aria-label="LinkedIn">in</a>
-          <a href="https://securescue.tistory.com/" target="_blank" rel="noreferrer" class="sidebar-link" aria-label="Blog">✎</a>
-          <button class="sidebar-link terminal-trigger" id="terminalOpenBtn" aria-label="Open terminal" title="Open terminal ( ` )">&gt;_</button>
-        </div>
-      </aside>
-
-      <!-- ===== Main panel area ===== -->
-      <main class="app-main" id="mainPanel">
-
-        <section class="panel is-active" id="panel-home" data-panel="home">
-          <p class="eyebrow">// cyber risk &amp; compliance — robot · iot · cps security research</p>
-          <h1 class="hero-title">ChaeYoung<span class="accent-amber"> “Klara”</span> Kim</h1>
-          <p class="hero-subtitle">Cyber Risk &amp; Compliance Consultant <span class="sep">/</span> Robot·IoT·CPS Security Researcher</p>
-          <p class="hero-copy">
-            I work at the intersection of enterprise compliance audit and applied security research —
-            translating ISMS, SOC&nbsp;2, and HIPAA controls into practice by day, and probing how those
-            same systems hold up in robots, IoT, and cyber-physical environments on the side.
-          </p>
-          <div class="hero-actions">
-            <a class="button primary" href="mailto:bobconsultantcy@gmail.com">contact_me()</a>
-            <a class="button" href="https://www.linkedin.com/in/chaeyoung-klara-kim/" target="_blank" rel="noreferrer">linkedin</a>
-            <a class="button" href="https://securescue.tistory.com/" target="_blank" rel="noreferrer">blog</a>
-            <button class="button" id="heroTerminalBtn">open_terminal()</button>
-          </div>
-          <ul class="hero-tags">
-            <li>ISMS-P</li>
-            <li>SOC 2</li>
-            <li>HIPAA</li>
-            <li>STRIDE</li>
-            <li>LINDDUN</li>
-            <li>BoB 13th</li>
-          </ul>
-          <p class="panel-hint">use the sidebar — or press <code>`</code> to open the terminal</p>
-        </section>
-
-        <section class="panel" id="panel-about" data-panel="about">
-          <p class="section-label">// about.md</p>
-          <h2>One person, two threat models.</h2>
-
-          <svg class="venn-diagram" viewBox="0 0 460 230" role="img" aria-label="Diagram showing the overlap between compliance audit and offensive security research, meeting in the middle as Klara">
-            <circle cx="170" cy="115" r="98" class="venn-circle venn-cyan" />
-            <circle cx="290" cy="115" r="98" class="venn-circle venn-amber" />
-            <text x="105" y="60" class="venn-label">COMPLIANCE</text>
-            <text x="105" y="80" class="venn-label">AUDIT</text>
-            <text x="100" y="170" class="venn-sub">ISMS-P · SOC 2</text>
-            <text x="100" y="188" class="venn-sub">HIPAA</text>
-            <text x="318" y="60" class="venn-label">OFFENSIVE</text>
-            <text x="318" y="80" class="venn-label">RESEARCH</text>
-            <text x="300" y="170" class="venn-sub">STRIDE · LINDDUN</text>
-            <text x="300" y="188" class="venn-sub">ATT&amp;CK</text>
-            <text x="230" y="115" class="venn-center">KLARA</text>
-            <text x="230" y="133" class="venn-center-sub">evidence ⇄ exploit</text>
+        <div class="map-wrap">
+          <!-- SVG connection lines layer -->
+          <svg class="map-lines" viewBox="0 0 900 440" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+            <defs>
+              <marker id="arrowhead" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+                <path d="M0,0 L6,3 L0,6 Z" fill="var(--accent)"/>
+              </marker>
+            </defs>
+            <!-- Seoul → Hillside NJ -->
+            <path class="map-line" d="M 733,130 Q 490,40 253,123" marker-end="url(#arrowhead)"/>
+            <!-- Seoul → San Diego -->
+            <path class="map-line" d="M 733,130 Q 440,20 150,142"/>
+            <!-- Seoul → Bucharest -->
+            <path class="map-line" d="M 733,130 Q 612,80 492,114"/>
+            <!-- Seoul → Taoyuan -->
+            <path class="map-line" d="M 733,130 Q 726,145 720,160"/>
           </svg>
 
-          <div class="about-copy">
-            <p>
-              I split my time between two ways of asking the same question — “where does this actually break?”
-              By day, I support ISMS-P certification, SOC&nbsp;2 and HIPAA-related IT audit, and third-party
-              security assessments, reading controls the way an auditor has to: literally, evidentially, line by line.
-            </p>
-            <p>
-              Outside client work, I research how those same assumptions hold up in service robots,
-              IoT-connected spaces, and cyber-physical systems — threat modeling with STRIDE and LINDDUN,
-              and occasionally turning audit findings into proof-of-concept attack paths just to see if the
-              paperwork was right.
-            </p>
-            <p>
-              That habit of moving between two systems started early. I learned Linux in a campus user group
-              before I learned how to write an audit finding, and spent a year leading newsletter coverage for
-              a national security training program before I ever sat in a client meeting. I'm still most
-              comfortable where compliance and offense meet.
-            </p>
-          </div>
-        </section>
-
-        <section class="panel" id="panel-education" data-panel="education">
-          <p class="section-label">// education.log</p>
-          <h2>From a Linux user group to client floors.</h2>
-
-          <p class="edu-group-label">Formal Education</p>
-          <div class="edu-timeline">
-            <article class="edu-item">
-              <div class="edu-marker"><svg viewBox="0 0 24 24"><path d="M3 14l8-2 7-7 2 2-7 7-2 8-2-1-1-4-3-3-1-2z" /></svg></div>
-              <div class="edu-content">
-                <span class="edu-stage">Elementary</span>
-                <h3>Seoul, South Korea <span class="sep">+</span> Hillside Elementary School</h3>
-                <p class="edu-meta">A year abroad at Hillside Elementary School, Hillside, New Jersey, USA</p>
-              </div>
-            </article>
-
-            <article class="edu-item">
-              <div class="edu-marker"><svg viewBox="0 0 24 24"><path d="M2 9l10-4 10 4-10 4-10-4z" /><path d="M6 11v5c0 1.3 2.7 2.5 6 2.5s6-1.2 6-2.5v-5" /></svg></div>
-              <div class="edu-content">
-                <span class="edu-stage">Middle School</span>
-                <h3><span lang="ko">대왕중학교</span> <span class="edu-en">(Daewang Middle School)</span></h3>
-                <p class="edu-meta">Seoul, South Korea</p>
-              </div>
-            </article>
-
-            <article class="edu-item">
-              <div class="edu-marker"><svg viewBox="0 0 24 24"><path d="M2 9l10-4 10 4-10 4-10-4z" /><path d="M6 11v5c0 1.3 2.7 2.5 6 2.5s6-1.2 6-2.5v-5" /></svg></div>
-              <div class="edu-content">
-                <span class="edu-stage">High School</span>
-                <h3><span lang="ko">창덕여자고등학교</span> <span class="edu-en">(Changdeok Girls' High School)</span></h3>
-                <p class="edu-meta">Seoul, South Korea</p>
-              </div>
-            </article>
-
-            <article class="edu-item">
-              <div class="edu-marker edu-marker-uni"><svg viewBox="0 0 24 24"><path d="M2 9l10-5 10 5-10 5-10-5z" /><path d="M6 12.5v5c0 1.3 2.7 2.5 6 2.5s6-1.2 6-2.5v-5" /><path d="M22 9v6" /></svg></div>
-              <div class="edu-content">
-                <span class="edu-stage">University</span>
-                <h3><span lang="ko">서울여자대학교</span> <span class="edu-en">(Seoul Women's University)</span></h3>
-                <p class="edu-meta">Seoul, South Korea</p>
-                <ul class="edu-detail">
-                  <li>SWLUG (Seoul Women's University Linux User Group), 25th cohort</li>
-                </ul>
-              </div>
-            </article>
+          <!-- Location pins -->
+          <div class="map-pin" data-pin="seoul" style="left:81.4%;top:29.5%">
+            <div class="pin-dot pin-home"></div>
+            <span class="pin-label">Seoul</span>
           </div>
 
-          <p class="edu-group-label edu-group-label-second">Community &amp; Training</p>
-          <div class="edu-timeline">
-            <article class="edu-item">
-              <div class="edu-marker edu-marker-program"><svg viewBox="0 0 24 24"><path d="M12 2l8 3v6c0 5-3.4 8.6-8 11-4.6-2.4-8-6-8-11V5l8-3z" /></svg></div>
-              <div class="edu-content">
-                <span class="edu-stage">Training Program</span>
-                <h3>BoB <span class="edu-en">(Best of the Best), 13th Cohort</span></h3>
-                <p class="edu-meta">KITRI — Korea's national elite cybersecurity talent program</p>
-              </div>
-            </article>
-
-            <article class="edu-item">
-              <div class="edu-marker edu-marker-program"><svg viewBox="0 0 24 24"><path d="M4 5h16v14H4z" /><path d="M4 8h16M8 12h8M8 15h5" /></svg></div>
-              <div class="edu-content">
-                <span class="edu-stage">Community Leadership</span>
-                <h3>BoB Newsletter</h3>
-                <p class="edu-meta">Reporter Team Lead, 6th cohort <span class="sep">→</span> Editor-in-Chief, 7th cohort</p>
-              </div>
-            </article>
-
-            <article class="edu-item">
-              <div class="edu-marker edu-marker-program"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" /><path d="M3 12h18M12 3a13 13 0 0 1 0 18 13 13 0 0 1 0-18z" /></svg></div>
-              <div class="edu-content">
-                <span class="edu-stage">Training Program</span>
-                <h3>Global Cybersecurity Camp <span class="edu-en">(GCC), 2025 Cohort</span></h3>
-                <p class="edu-meta">International cybersecurity talent program, Taoyuan, Taiwan</p>
-              </div>
-            </article>
-          </div>
-        </section>
-
-        <section class="panel" id="panel-experience" data-panel="experience">
-          <p class="section-label">// experience.log</p>
-          <h2>Selected Experience</h2>
-
-          <div class="timeline">
-            <article class="timeline-item">
-              <div class="timeline-meta">
-                <span class="date">Dec 2025 – Present</span>
-                <span class="role-tag">Compliance · IT Audit</span>
-              </div>
-              <div>
-                <h3>Deloitte Anjin LLC <span class="edu-en">— Cyber Security Consultant</span></h3>
-                <p class="timeline-sub">T&amp;T Cyber Risk &amp; Compliance</p>
-                <ul>
-                  <li>Support ISMS initial and re-certification consulting projects for client-confidential global brands.</li>
-                  <li>Participate in third-party security assessment and IT audit projects.</li>
-                  <li>Support SOC&nbsp;2 and HIPAA-related IT audit work for a Korean listed company's U.S. subsidiary.</li>
-                </ul>
-              </div>
-            </article>
-
-            <article class="timeline-item">
-              <div class="timeline-meta">
-                <span class="date">Mar 2025 – Jun 2025</span>
-                <span class="role-tag">Product · WAPPLES</span>
-              </div>
-              <div>
-                <h3>PentaSecurity <span class="edu-en">— Intern</span></h3>
-                <p class="timeline-sub">Planning Team 1 / WAPPLES Product</p>
-                <ul>
-                  <li>Prepared web vulnerability analysis reports and customer-facing documentation.</li>
-                  <li>Analyzed PCI-DSS v4.0.1 and other compliance requirements for WAPPLES product strategy.</li>
-                  <li>Conducted competitive analysis and supported new business model planning.</li>
-                </ul>
-              </div>
-            </article>
-
-            <article class="timeline-item">
-              <div class="timeline-meta">
-                <span class="date">Jan 2024 – Feb 2024</span>
-                <span class="role-tag">Policy · Mobility</span>
-              </div>
-              <div>
-                <h3>Kakao Mobility <span class="edu-en">— Intern</span></h3>
-                <p class="timeline-sub">CR Strategy Office / External Affairs Team</p>
-                <ul>
-                  <li>Authored a report on cyber security and data protection in the autonomous vehicle and mobility industry.</li>
-                </ul>
-              </div>
-            </article>
-
-            <article class="timeline-item">
-              <div class="timeline-meta">
-                <span class="date">Jul 2023 – Aug 2023</span>
-                <span class="role-tag">CI/CD · Cloud</span>
-              </div>
-              <div>
-                <h3>Ericsson-LG R&amp;D <span class="edu-en">— Software Engineering Intern</span></h3>
-                <p class="timeline-sub">CI/CD Testing Team / vCU7 Team</p>
-                <ul>
-                  <li>Built a Jenkins-based build pipeline to support namespace cleanup in a Kubernetes environment.</li>
-                  <li>Gained experience in agile development, CI/CD workflows, and internal deployment processes.</li>
-                </ul>
-              </div>
-            </article>
-          </div>
-        </section>
-
-        <section class="panel" id="panel-projects" data-panel="projects">
-          <p class="section-label">// projects.dir</p>
-          <h2>Featured Projects</h2>
-
-          <div class="filter-bar" role="group" aria-label="Filter projects by category">
-            <button class="filter-chip is-active" data-filter="all">all</button>
-            <button class="filter-chip" data-filter="robot">robot security</button>
-            <button class="filter-chip" data-filter="space">space security</button>
-            <button class="filter-chip" data-filter="threat-intel">threat intel</button>
-            <button class="filter-chip" data-filter="ai">ai security</button>
-            <button class="filter-chip" data-filter="research">security research</button>
+          <div class="map-pin" data-pin="nj" style="left:28.1%;top:27.7%">
+            <div class="pin-dot"></div>
+            <span class="pin-label">Hillside, NJ</span>
           </div>
 
-          <div class="grid project-grid" id="projectGrid">
-            <article class="card project" data-tags="robot">
-              <svg class="project-icon" viewBox="0 0 24 24"><rect x="5" y="9" width="14" height="10" rx="2" /><circle cx="9" cy="14" r="1.3" /><circle cx="15" cy="14" r="1.3" /><path d="M12 9V5M9 5h6" /></svg>
-              <span class="tag">Team Lead · Robot Security</span>
-              <h3>Service Robot Security Consulting</h3>
-              <p>
-                Led a security consulting project focused on vulnerability assessment, threat modeling,
-                and security requirement derivation for autonomous service robots.
-              </p>
-              <ul>
-                <li>LG Electronics service robot security consulting</li>
-                <li>Robot security model publication contribution with KIRIA and KISA</li>
-                <li>Policy and standardization discussion around service robot cyber security</li>
-              </ul>
-            </article>
-
-            <article class="card project" data-tags="space">
-              <svg class="project-icon" viewBox="0 0 24 24"><rect x="9" y="9" width="6" height="6" rx="1" transform="rotate(45 12 12)" /><path d="M4 4l3 3M20 4l-3 3M5 19l4-4M19 19l-4-4" /></svg>
-              <span class="tag">Member · Space Security</span>
-              <h3>Kinryu Labs <span class="edu-en">(formerly SATCR4K)</span></h3>
-              <p>
-                Member of Kinryu Labs, an international research collective on CubeSat security with
-                Singapore and Taiwan teams, covering space and satellite cyber-physical security risks.
-              </p>
-              <ul>
-                <li>Presented related research at DefCamp, Romania</li>
-                <li>Focused on satellite and embedded system security considerations</li>
-              </ul>
-              <a class="button project-link" href="https://kinryu.sh" target="_blank" rel="noreferrer">kinryu.sh ↗</a>
-            </article>
-
-            <article class="card project" data-tags="threat-intel">
-              <svg class="project-icon" viewBox="0 0 24 24"><circle cx="10" cy="10" r="6" /><path d="M14.5 14.5L20 20" /></svg>
-              <span class="tag">Threat Intelligence</span>
-              <h3>APT Group Profiling Framework</h3>
-              <p>
-                Designed a profiling framework to identify APT groups by combining hash-unit evidence
-                with tactics, techniques, and procedures.
-              </p>
-              <ul>
-                <li>Published in IEICE Transactions on Information and Systems</li>
-                <li>Best Paper Award at KIISE KSC 2023 undergraduate paper competition</li>
-              </ul>
-            </article>
-
-            <article class="card project" data-tags="ai">
-              <svg class="project-icon" viewBox="0 0 24 24"><path d="M3 12h3l2-6 4 12 2-8 2 4h5" /></svg>
-              <span class="tag">AI Security · Team Lead</span>
-              <h3>AI Synthetic Voice Detection System</h3>
-              <p>
-                Led a deepvoice detection project covering dataset collection, preprocessing, model development,
-                training, and testing.
-              </p>
-              <ul>
-                <li>SK Telecom CEO Award at the AI Ethics Competition</li>
-                <li>Software patent application and academic publication</li>
-              </ul>
-            </article>
-
-            <article class="card project" data-tags="research">
-              <svg class="project-icon" viewBox="0 0 24 24"><path d="M4 5h16v14H4z" /><path d="M8 9l-2 3 2 3M16 9l2 3-2 3M13 8l-2 8" /></svg>
-              <span class="tag">Independent Research</span>
-              <h3>Comply-to-Pwn</h3>
-              <p>
-                A framework — and accompanying CLI tool — that converts compliance audit artifacts into
-                attack paths, mapping audit evidence to realistic attack chains rather than checklists.
-              </p>
-              <ul>
-                <li>Built <code>comply2pwn</code>, a Python CLI with evidence loaders, ATT&amp;CK normalization, blast-radius scoring, and attack graph rendering</li>
-                <li>Packaged as a DEF CON-style research talk, with a full 22-slide deck walking through the framework</li>
-              </ul>
-
-              <svg class="pipeline-diagram" viewBox="0 0 520 70" role="img" aria-label="Pipeline diagram: evidence loaders to ATT&CK normalization to blast radius scoring to attack graph">
-                <g class="pipe-step">
-                  <rect x="4" y="14" width="112" height="42" rx="6" />
-                  <text x="60" y="40" text-anchor="middle">evidence</text>
-                </g>
-                <path class="pipe-arrow" d="M120 35h24" marker-end="url(#arrow)" />
-                <g class="pipe-step">
-                  <rect x="148" y="14" width="118" height="42" rx="6" />
-                  <text x="207" y="40" text-anchor="middle">ATT&amp;CK norm.</text>
-                </g>
-                <path class="pipe-arrow" d="M270 35h24" marker-end="url(#arrow)" />
-                <g class="pipe-step">
-                  <rect x="298" y="14" width="108" height="42" rx="6" />
-                  <text x="352" y="40" text-anchor="middle">blast radius</text>
-                </g>
-                <path class="pipe-arrow" d="M410 35h24" marker-end="url(#arrow)" />
-                <g class="pipe-step">
-                  <rect x="438" y="14" width="78" height="42" rx="6" />
-                  <text x="477" y="40" text-anchor="middle">graph</text>
-                </g>
-                <defs>
-                  <marker id="arrow" markerWidth="8" markerHeight="8" refX="5" refY="3" orient="auto">
-                    <path d="M0,0 L6,3 L0,6 z" />
-                  </marker>
-                </defs>
-              </svg>
-            </article>
+          <div class="map-pin" data-pin="sandiego" style="left:16.6%;top:32.2%">
+            <div class="pin-dot"></div>
+            <span class="pin-label">San Diego</span>
           </div>
-        </section>
 
-        <section class="panel" id="panel-publications" data-panel="publications">
-          <p class="section-label">// publications.bib</p>
-          <h2>Selected Publications</h2>
-          <div class="list">
-            <article class="list-item">
-              <span class="tag tag-status">In Preparation</span>
-              <h3>R-SPS: A Security, Privacy, and Safety Assessment Framework for Service Robots</h3>
-              <p>Target venue: ETRI Journal. Co-authors: MinYoung Park, HunHee Lee, Kyounggon Kim.</p>
-            </article>
-            <article class="list-item">
-              <h3>FORESIGHT: A Unified Framework for Threat Modeling and Risk Assessment in Robotics and IoT</h3>
-              <p>NDSS Symposium co-located workshop SDIoTSec Poster, San Diego, Feb. 2025.</p>
-            </article>
-            <article class="list-item">
-              <h3>Practical APT Group Hash Unit Profiling Framework Using TTPs</h3>
-              <p>IEICE Transactions on Information and Systems, vol. E107-D, no. 12, Dec. 2024. SCIE.</p>
-            </article>
-            <article class="list-item">
-              <h3>Privacy Threat Modeling and Verification of LTE Phone Transmission in Autonomous Robots Using LINDDUN</h3>
-              <p>KIISC, Nov. 2024.</p>
-            </article>
-            <article class="list-item">
-              <h3>Security Requirements Derivation for Indoor Autonomous Driving Robots Based on STRIDE</h3>
-              <p>IEIE, Nov. 2024.</p>
-            </article>
+          <div class="map-pin" data-pin="bucharest" style="left:54.6%;top:25.9%">
+            <div class="pin-dot"></div>
+            <span class="pin-label">Bucharest</span>
           </div>
-        </section>
 
-        <section class="panel" id="panel-talks" data-panel="talks">
-          <p class="section-label">// talks_and_awards.log</p>
-          <h2>Research presentations, lectures, conference roles, and awards.</h2>
-          <div class="talks-grid">
-            <div>
-              <h3>Talks</h3>
-              <ul>
-                <li>DefCamp, Romania — Research Presentation, Nov. 2025</li>
-                <li>NIPA Overseas Trainee Invitational Lecture, Sep. 2025</li>
-                <li>KISEC Hyundai AutoEver Lecture, Aug. 2025</li>
-                <li>NDSS SDIoTSec, San Diego — Poster Presentation, Feb. 2025</li>
-              </ul>
+          <div class="map-pin" data-pin="taoyuan" style="left:80%;top:36.8%">
+            <div class="pin-dot"></div>
+            <span class="pin-label">Taoyuan</span>
+          </div>
+
+          <!-- Pin detail cards -->
+          <div class="pin-card" id="card-seoul">
+            <button class="pin-card-close" aria-label="Close">✕</button>
+            <p class="pin-card-tag">🏠 Home Base</p>
+            <h3>Seoul, South Korea</h3>
+            <ul>
+              <li>Born &amp; raised here</li>
+              <li>Deloitte Anjin LLC (Dec 2025–present)</li>
+              <li><span lang="ko">대왕중학교 · 창덕여자고등학교</span></li>
+              <li>서울여자대학교 · SWLUG 25th</li>
+              <li>BoB 13th cohort · KSC 2023</li>
+            </ul>
+          </div>
+
+          <div class="pin-card" id="card-nj">
+            <button class="pin-card-close" aria-label="Close">✕</button>
+            <p class="pin-card-tag">✈ Study Abroad</p>
+            <h3>Hillside, New Jersey, USA</h3>
+            <ul>
+              <li>Hillside Elementary School</li>
+              <li>A year living and studying abroad</li>
+              <li>First exposure to a different system</li>
+            </ul>
+          </div>
+
+          <div class="pin-card" id="card-sandiego">
+            <button class="pin-card-close" aria-label="Close">✕</button>
+            <p class="pin-card-tag">🎤 Conference</p>
+            <h3>San Diego, California, USA</h3>
+            <ul>
+              <li>NDSS Symposium 2025</li>
+              <li>SDIoTSec Workshop</li>
+              <li>Poster: FORESIGHT framework for robotics &amp; IoT threat modeling</li>
+            </ul>
+          </div>
+
+          <div class="pin-card" id="card-bucharest">
+            <button class="pin-card-close" aria-label="Close">✕</button>
+            <p class="pin-card-tag">🎤 Conference</p>
+            <h3>Bucharest, Romania</h3>
+            <ul>
+              <li>DefCamp 2025</li>
+              <li>Research presentation on CubeSat / space security</li>
+              <li>Kinryu Labs (formerly SATCR4K) collaboration</li>
+            </ul>
+          </div>
+
+          <div class="pin-card" id="card-taoyuan">
+            <button class="pin-card-close" aria-label="Close">✕</button>
+            <p class="pin-card-tag">🌏 Program</p>
+            <h3>Taoyuan, Taiwan</h3>
+            <ul>
+              <li>Global Cybersecurity Camp (GCC) 2025</li>
+              <li>International cybersecurity talent program</li>
+              <li>Cross-border collaboration with SG &amp; TW teams</li>
+            </ul>
+          </div>
+        </div>
+
+        <p class="map-hint">Click a pin to see details</p>
+      </section>
+
+      <!-- ABOUT -->
+      <section class="panel" id="panel-about" data-panel="about">
+        <p class="section-label" data-r="// about.md" data-a="About"></p>
+        <h2>One person, two threat models.</h2>
+
+        <svg class="venn-diagram" viewBox="0 0 460 230" role="img" aria-label="Venn diagram: Compliance Audit meets Offensive Research — that's Klara">
+          <circle cx="170" cy="115" r="98" class="venn-circle venn-cyan"/>
+          <circle cx="290" cy="115" r="98" class="venn-circle venn-amber"/>
+          <text x="105" y="60" class="venn-label">COMPLIANCE</text>
+          <text x="105" y="80" class="venn-label">AUDIT</text>
+          <text x="100" y="170" class="venn-sub">ISMS-P · SOC 2</text>
+          <text x="100" y="188" class="venn-sub">HIPAA</text>
+          <text x="318" y="60" class="venn-label">OFFENSIVE</text>
+          <text x="318" y="80" class="venn-label">RESEARCH</text>
+          <text x="300" y="170" class="venn-sub">STRIDE · LINDDUN</text>
+          <text x="300" y="188" class="venn-sub">ATT&amp;CK</text>
+          <text x="230" y="115" class="venn-center">KLARA</text>
+          <text x="230" y="133" class="venn-center-sub">evidence ⇄ exploit</text>
+        </svg>
+
+        <div class="about-copy">
+          <p>I split my time between two ways of asking the same question — "where does this actually break?" By day, I support ISMS-P certification, SOC&nbsp;2 and HIPAA-related IT audit, and third-party security assessments, reading controls the way an auditor has to: literally, evidentially, line by line.</p>
+          <p>Outside client work, I research how those same assumptions hold up in service robots, IoT-connected spaces, and cyber-physical systems — threat modeling with STRIDE and LINDDUN, and occasionally turning audit findings into proof-of-concept attack paths just to see if the paperwork was right.</p>
+          <p>That habit started early. I learned Linux in a campus user group before I learned how to write an audit finding, and spent a year leading newsletter coverage for a national security training program before I ever sat in a client meeting. I'm still most comfortable where compliance and offense meet.</p>
+        </div>
+      </section>
+
+      <!-- EDUCATION -->
+      <section class="panel" id="panel-education" data-panel="education">
+        <p class="section-label" data-r="// education.log" data-a="Education"></p>
+        <h2>From a Linux user group to client floors.</h2>
+
+        <p class="edu-group-label">Formal Education</p>
+        <div class="edu-timeline">
+          <article class="edu-item">
+            <div class="edu-marker"><svg viewBox="0 0 24 24"><path d="M3 14l8-2 7-7 2 2-7 7-2 8-2-1-1-4-3-3-1-2z"/></svg></div>
+            <div class="edu-content">
+              <span class="edu-stage">Elementary</span>
+              <h3>Seoul, South Korea <span class="sep">+</span> Hillside Elementary School</h3>
+              <p class="edu-meta">A year abroad at Hillside Elementary School, Hillside, New Jersey, USA</p>
+            </div>
+          </article>
+          <article class="edu-item">
+            <div class="edu-marker"><svg viewBox="0 0 24 24"><path d="M2 9l10-4 10 4-10 4-10-4z"/><path d="M6 11v5c0 1.3 2.7 2.5 6 2.5s6-1.2 6-2.5v-5"/></svg></div>
+            <div class="edu-content">
+              <span class="edu-stage">Middle School</span>
+              <h3><span lang="ko">대왕중학교</span> <span class="edu-en">(Daewang Middle School)</span></h3>
+              <p class="edu-meta">Seoul, South Korea</p>
+            </div>
+          </article>
+          <article class="edu-item">
+            <div class="edu-marker"><svg viewBox="0 0 24 24"><path d="M2 9l10-4 10 4-10 4-10-4z"/><path d="M6 11v5c0 1.3 2.7 2.5 6 2.5s6-1.2 6-2.5v-5"/></svg></div>
+            <div class="edu-content">
+              <span class="edu-stage">High School</span>
+              <h3><span lang="ko">창덕여자고등학교</span> <span class="edu-en">(Changdeok Girls' High School)</span></h3>
+              <p class="edu-meta">Seoul, South Korea</p>
+            </div>
+          </article>
+          <article class="edu-item">
+            <div class="edu-marker edu-marker-uni"><svg viewBox="0 0 24 24"><path d="M2 9l10-5 10 5-10 5-10-5z"/><path d="M6 12.5v5c0 1.3 2.7 2.5 6 2.5s6-1.2 6-2.5v-5"/><path d="M22 9v6"/></svg></div>
+            <div class="edu-content">
+              <span class="edu-stage">University</span>
+              <h3><span lang="ko">서울여자대학교</span> <span class="edu-en">(Seoul Women's University)</span></h3>
+              <p class="edu-meta">Seoul, South Korea</p>
+              <ul class="edu-detail"><li>SWLUG (Seoul Women's University Linux User Group), 25th cohort</li></ul>
+            </div>
+          </article>
+        </div>
+
+        <p class="edu-group-label edu-group-label-second">Community &amp; Training</p>
+        <div class="edu-timeline">
+          <article class="edu-item">
+            <div class="edu-marker edu-marker-program"><svg viewBox="0 0 24 24"><path d="M12 2l8 3v6c0 5-3.4 8.6-8 11-4.6-2.4-8-6-8-11V5l8-3z"/></svg></div>
+            <div class="edu-content">
+              <span class="edu-stage">Training Program</span>
+              <h3>BoB <span class="edu-en">(Best of the Best), 13th Cohort</span></h3>
+              <p class="edu-meta">KITRI — Korea's national elite cybersecurity talent program</p>
+            </div>
+          </article>
+          <article class="edu-item">
+            <div class="edu-marker edu-marker-program"><svg viewBox="0 0 24 24"><path d="M4 5h16v14H4z"/><path d="M4 8h16M8 12h8M8 15h5"/></svg></div>
+            <div class="edu-content">
+              <span class="edu-stage">Community Leadership</span>
+              <h3>BoB Newsletter</h3>
+              <p class="edu-meta">Reporter Team Lead, 6th cohort <span class="sep">→</span> Editor-in-Chief, 7th cohort</p>
+            </div>
+          </article>
+          <article class="edu-item">
+            <div class="edu-marker edu-marker-program"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a13 13 0 0 1 0 18A13 13 0 0 1 12 3z"/></svg></div>
+            <div class="edu-content">
+              <span class="edu-stage">Training Program</span>
+              <h3>Global Cybersecurity Camp <span class="edu-en">(GCC), 2025 Cohort</span></h3>
+              <p class="edu-meta">International cybersecurity talent program, Taoyuan, Taiwan</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- EXPERIENCE -->
+      <section class="panel" id="panel-experience" data-panel="experience">
+        <p class="section-label" data-r="// experience.log" data-a="Experience"></p>
+        <h2>Selected Experience</h2>
+        <div class="timeline">
+          <article class="timeline-item">
+            <div class="timeline-meta">
+              <span class="date">Dec 2025 – Present</span>
+              <span class="role-tag">Compliance · IT Audit</span>
             </div>
             <div>
-              <h3>Awards</h3>
+              <h3>Deloitte Anjin LLC <span class="edu-en">— Cyber Security Consultant</span></h3>
+              <p class="timeline-sub">T&amp;T Cyber Risk &amp; Compliance</p>
               <ul>
-                <li>Future Korea Idea Contest, Finalist, Ministry of Economy and Finance, 2024</li>
-                <li>AI Ethics Competition, SK Telecom CEO Award, 2024</li>
-                <li>Korea Software Congress Undergraduate Paper Competition, Encouragement Award, 2024</li>
-                <li>Ericsson-LG Girls in ICT Hackathon, Best Award, 2023</li>
+                <li>Support ISMS initial and re-certification consulting projects for client-confidential global brands.</li>
+                <li>Participate in third-party security assessment and IT audit projects.</li>
+                <li>Support SOC&nbsp;2 and HIPAA-related IT audit work for a Korean listed company's U.S. subsidiary.</li>
               </ul>
             </div>
-          </div>
-        </section>
+          </article>
+          <article class="timeline-item">
+            <div class="timeline-meta">
+              <span class="date">Mar 2025 – Jun 2025</span>
+              <span class="role-tag">Product · WAPPLES</span>
+            </div>
+            <div>
+              <h3>PentaSecurity <span class="edu-en">— Intern</span></h3>
+              <p class="timeline-sub">Planning Team 1 / WAPPLES Product</p>
+              <ul>
+                <li>Prepared web vulnerability analysis reports and customer-facing documentation.</li>
+                <li>Analyzed PCI-DSS v4.0.1 and other compliance requirements for WAPPLES product strategy.</li>
+                <li>Conducted competitive analysis and supported new business model planning.</li>
+              </ul>
+            </div>
+          </article>
+          <article class="timeline-item">
+            <div class="timeline-meta">
+              <span class="date">Jan 2024 – Feb 2024</span>
+              <span class="role-tag">Policy · Mobility</span>
+            </div>
+            <div>
+              <h3>Kakao Mobility <span class="edu-en">— Intern</span></h3>
+              <p class="timeline-sub">CR Strategy Office / External Affairs Team</p>
+              <ul>
+                <li>Authored a report on cyber security and data protection in the autonomous vehicle and mobility industry.</li>
+              </ul>
+            </div>
+          </article>
+          <article class="timeline-item">
+            <div class="timeline-meta">
+              <span class="date">Jul 2023 – Aug 2023</span>
+              <span class="role-tag">CI/CD · Cloud</span>
+            </div>
+            <div>
+              <h3>Ericsson-LG R&amp;D <span class="edu-en">— Software Engineering Intern</span></h3>
+              <p class="timeline-sub">CI/CD Testing Team / vCU7 Team</p>
+              <ul>
+                <li>Built a Jenkins-based build pipeline to support namespace cleanup in a Kubernetes environment.</li>
+                <li>Gained experience in agile development, CI/CD workflows, and internal deployment processes.</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </section>
 
-        <section class="panel" id="panel-contact" data-panel="contact">
-          <p class="section-label">// contact.sh</p>
-          <h2>Open to research collaboration, cybersecurity projects, talks, and mentoring.</h2>
-          <div class="contact-actions">
-            <a class="button primary" href="mailto:bobconsultantcy@gmail.com">bobconsultantcy@gmail.com</a>
-            <a class="button" href="https://www.linkedin.com/in/chaeyoung-klara-kim/" target="_blank" rel="noreferrer">LinkedIn</a>
-            <a class="button" href="https://securescue.tistory.com/" target="_blank" rel="noreferrer">Blog</a>
-          </div>
-          <div class="tlp-badge">
-            <span class="tlp-swatch" aria-hidden="true"></span>
-            <span>This page is rated <strong>TLP:CLEAR</strong> — public, no restrictions, share freely.</span>
-          </div>
-          <p class="footer-prompt"><span class="t-prompt">klara@security:~$</span> exit<span class="cursor" aria-hidden="true"></span></p>
-          <p class="copyright">© <span id="year"></span> ChaeYoung “Klara” Kim. All rights reserved.</p>
-        </section>
+      <!-- PROJECTS -->
+      <section class="panel" id="panel-projects" data-panel="projects">
+        <p class="section-label" data-r="// projects.dir" data-a="Projects"></p>
+        <h2>Featured Projects</h2>
+        <div class="filter-bar" role="group" aria-label="Filter projects">
+          <button class="filter-chip is-active" data-filter="all">all</button>
+          <button class="filter-chip" data-filter="robot">robot security</button>
+          <button class="filter-chip" data-filter="space">space security</button>
+          <button class="filter-chip" data-filter="threat-intel">threat intel</button>
+          <button class="filter-chip" data-filter="ai">ai security</button>
+          <button class="filter-chip" data-filter="research">security research</button>
+        </div>
+        <div class="grid project-grid" id="projectGrid">
+          <article class="card project" data-tags="robot">
+            <svg class="project-icon" viewBox="0 0 24 24"><rect x="5" y="9" width="14" height="10" rx="2"/><circle cx="9" cy="14" r="1.3"/><circle cx="15" cy="14" r="1.3"/><path d="M12 9V5M9 5h6"/></svg>
+            <span class="tag">Team Lead · Robot Security</span>
+            <h3>Service Robot Security Consulting</h3>
+            <p>Led a security consulting project focused on vulnerability assessment, threat modeling, and security requirement derivation for autonomous service robots.</p>
+            <ul>
+              <li>LG Electronics service robot security consulting</li>
+              <li>Robot security model publication contribution with KIRIA and KISA</li>
+              <li>Policy and standardization discussion around service robot cyber security</li>
+            </ul>
+          </article>
+          <article class="card project" data-tags="space">
+            <svg class="project-icon" viewBox="0 0 24 24"><rect x="9" y="9" width="6" height="6" rx="1" transform="rotate(45 12 12)"/><path d="M4 4l3 3M20 4l-3 3M5 19l4-4M19 19l-4-4"/></svg>
+            <span class="tag">Member · Space Security</span>
+            <h3>Kinryu Labs <span class="edu-en">(formerly SATCR4K)</span></h3>
+            <p>Member of Kinryu Labs, an international research collective on CubeSat security with Singapore and Taiwan teams, covering space and satellite cyber-physical security risks.</p>
+            <ul>
+              <li>Presented related research at DefCamp, Romania</li>
+              <li>Focused on satellite and embedded system security considerations</li>
+            </ul>
+            <a class="button project-link" href="https://kinryu.sh" target="_blank" rel="noreferrer">kinryu.sh ↗</a>
+          </article>
+          <article class="card project" data-tags="threat-intel">
+            <svg class="project-icon" viewBox="0 0 24 24"><circle cx="10" cy="10" r="6"/><path d="M14.5 14.5L20 20"/></svg>
+            <span class="tag">Threat Intelligence</span>
+            <h3>APT Group Profiling Framework</h3>
+            <p>Designed a profiling framework to identify APT groups by combining hash-unit evidence with tactics, techniques, and procedures.</p>
+            <ul>
+              <li>Published in IEICE Transactions on Information and Systems</li>
+              <li>Best Paper Award at KIISE KSC 2023</li>
+            </ul>
+          </article>
+          <article class="card project" data-tags="ai">
+            <svg class="project-icon" viewBox="0 0 24 24"><path d="M3 12h3l2-6 4 12 2-8 2 4h5"/></svg>
+            <span class="tag">AI Security · Team Lead</span>
+            <h3>AI Synthetic Voice Detection System</h3>
+            <p>Led a deepvoice detection project covering dataset collection, preprocessing, model development, training, and testing.</p>
+            <ul>
+              <li>SK Telecom CEO Award at the AI Ethics Competition</li>
+              <li>Software patent application and academic publication</li>
+            </ul>
+          </article>
+          <article class="card project" data-tags="research">
+            <svg class="project-icon" viewBox="0 0 24 24"><path d="M4 5h16v14H4z"/><path d="M8 9l-2 3 2 3M16 9l2 3-2 3M13 8l-2 8"/></svg>
+            <span class="tag">Independent Research</span>
+            <h3>Comply-to-Pwn</h3>
+            <p>A framework and CLI tool that converts compliance audit artifacts into attack paths, mapping audit evidence to realistic attack chains.</p>
+            <ul>
+              <li>Built <code>comply2pwn</code>: Python CLI with evidence loaders, ATT&amp;CK normalization, blast-radius scoring, and attack graph rendering</li>
+              <li>Packaged as a DEF CON-style research talk (22-slide deck)</li>
+            </ul>
+            <svg class="pipeline-diagram" viewBox="0 0 520 70" role="img" aria-label="Pipeline: evidence → ATT&CK norm. → blast radius → graph">
+              <g class="pipe-step"><rect x="4" y="14" width="112" height="42" rx="6"/><text x="60" y="40" text-anchor="middle">evidence</text></g>
+              <path class="pipe-arrow" d="M120 35h24" marker-end="url(#arrow2)"/>
+              <g class="pipe-step"><rect x="148" y="14" width="118" height="42" rx="6"/><text x="207" y="40" text-anchor="middle">ATT&amp;CK norm.</text></g>
+              <path class="pipe-arrow" d="M270 35h24" marker-end="url(#arrow2)"/>
+              <g class="pipe-step"><rect x="298" y="14" width="108" height="42" rx="6"/><text x="352" y="40" text-anchor="middle">blast radius</text></g>
+              <path class="pipe-arrow" d="M410 35h24" marker-end="url(#arrow2)"/>
+              <g class="pipe-step"><rect x="438" y="14" width="78" height="42" rx="6"/><text x="477" y="40" text-anchor="middle">graph</text></g>
+              <defs><marker id="arrow2" markerWidth="8" markerHeight="8" refX="5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 z"/></marker></defs>
+            </svg>
+          </article>
+        </div>
+      </section>
 
-      </main>
+      <!-- PUBLICATIONS -->
+      <section class="panel" id="panel-publications" data-panel="publications">
+        <p class="section-label" data-r="// publications.bib" data-a="Publications"></p>
+        <h2>Selected Publications</h2>
+        <div class="list">
+          <article class="list-item">
+            <span class="tag tag-status">In Preparation</span>
+            <h3>R-SPS: A Security, Privacy, and Safety Assessment Framework for Service Robots</h3>
+            <p>Target venue: ETRI Journal. Co-authors: MinYoung Park, HunHee Lee, Kyounggon Kim.</p>
+          </article>
+          <article class="list-item">
+            <h3>FORESIGHT: A Unified Framework for Threat Modeling and Risk Assessment in Robotics and IoT</h3>
+            <p>NDSS Symposium co-located workshop SDIoTSec Poster, San Diego, Feb. 2025.</p>
+          </article>
+          <article class="list-item">
+            <h3>Practical APT Group Hash Unit Profiling Framework Using TTPs</h3>
+            <p>IEICE Transactions on Information and Systems, vol. E107-D, no. 12, Dec. 2024. SCIE.</p>
+          </article>
+          <article class="list-item">
+            <h3>Privacy Threat Modeling and Verification of LTE Phone Transmission in Autonomous Robots Using LINDDUN</h3>
+            <p>KIISC, Nov. 2024.</p>
+          </article>
+          <article class="list-item">
+            <h3>Security Requirements Derivation for Indoor Autonomous Driving Robots Based on STRIDE</h3>
+            <p>IEIE, Nov. 2024.</p>
+          </article>
+        </div>
+      </section>
+
+      <!-- TALKS -->
+      <section class="panel" id="panel-talks" data-panel="talks">
+        <p class="section-label" data-r="// talks_and_awards.log" data-a="Talks &amp; Awards"></p>
+        <h2>Research presentations, lectures, and awards.</h2>
+        <div class="talks-grid">
+          <div>
+            <h3>Talks</h3>
+            <ul>
+              <li>DefCamp, Romania — Research Presentation, Nov. 2025</li>
+              <li>NIPA Overseas Trainee Invitational Lecture, Sep. 2025</li>
+              <li>KISEC Hyundai AutoEver Lecture, Aug. 2025</li>
+              <li>NDSS SDIoTSec, San Diego — Poster Presentation, Feb. 2025</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Awards</h3>
+            <ul>
+              <li>Future Korea Idea Contest, Finalist, Ministry of Economy and Finance, 2024</li>
+              <li>AI Ethics Competition, SK Telecom CEO Award, 2024</li>
+              <li>Korea Software Congress Undergraduate Paper Competition, Encouragement Award, 2024</li>
+              <li>Ericsson-LG Girls in ICT Hackathon, Best Award, 2023</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+      <section class="panel" id="panel-contact" data-panel="contact">
+        <p class="section-label" data-r="// contact.sh" data-a="Contact"></p>
+        <h2>Open to research collaboration, projects, talks, and mentoring.</h2>
+        <div class="contact-actions">
+          <a class="button primary" href="mailto:bobconsultantcy@gmail.com">bobconsultantcy@gmail.com</a>
+          <a class="button" href="https://www.linkedin.com/in/chaeyoung-klara-kim/" target="_blank" rel="noreferrer">LinkedIn</a>
+          <a class="button" href="https://securescue.tistory.com/" target="_blank" rel="noreferrer">Blog</a>
+        </div>
+        <div class="tlp-badge">
+          <span class="tlp-swatch"></span>
+          <span>This page is rated <strong>TLP:CLEAR</strong> — public, share freely.</span>
+        </div>
+        <p class="footer-prompt"><span class="t-prompt">klara@security:~$</span> exit<span class="cursor"></span></p>
+        <p class="copyright">© <span id="year"></span> ChaeYoung "Klara" Kim. All rights reserved.</p>
+      </section>
+
+    </main>
+  </div>
+</div>
+
+<!-- Terminal overlay -->
+<div class="terminal-overlay" id="terminalOverlay" hidden>
+  <div class="terminal-window">
+    <div class="terminal-titlebar">
+      <span class="dot dot-red"></span><span class="dot dot-amber"></span><span class="dot dot-green"></span>
+      <span class="terminal-title">klara@security: ~</span>
+      <button class="terminal-close" id="terminalCloseBtn" aria-label="Close terminal">✕</button>
+    </div>
+    <div class="terminal-body" id="terminalBody">
+      <p class="t-line"><span class="t-prompt">klara@security:~$</span> whoami</p>
+      <p class="t-line t-output">ChaeYoung "Klara" Kim — Cyber Risk &amp; Compliance Consultant / Robot·IoT·CPS Security Researcher</p>
+      <p class="t-line t-hint">type <code>help</code> to see available commands</p>
+    </div>
+    <div class="terminal-inputline">
+      <span class="t-prompt">klara@security:~$</span>
+      <input id="terminalInput" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="Terminal command input" placeholder="type a command..."/>
     </div>
   </div>
+</div>
 
-  <!-- ===== Terminal overlay ===== -->
-  <div class="terminal-overlay" id="terminalOverlay" hidden>
-    <div class="terminal-window">
-      <div class="terminal-titlebar">
-        <span class="dot dot-red" aria-hidden="true"></span>
-        <span class="dot dot-amber" aria-hidden="true"></span>
-        <span class="dot dot-green" aria-hidden="true"></span>
-        <span class="terminal-title">klara@security: ~</span>
-        <button class="terminal-close" id="terminalCloseBtn" aria-label="Close terminal">✕</button>
-      </div>
-      <div class="terminal-body" id="terminalBody">
-        <p class="t-line"><span class="t-prompt">klara@security:~$</span> whoami</p>
-        <p class="t-line t-output">ChaeYoung “Klara” Kim — Cyber Risk &amp; Compliance Consultant / Robot·IoT·CPS Security Researcher</p>
-        <p class="t-line t-hint">type <code>help</code> to see available commands</p>
-      </div>
-      <div class="terminal-inputline">
-        <span class="t-prompt">klara@security:~$</span>
-        <input
-          id="terminalInput"
-          type="text"
-          autocomplete="off"
-          autocapitalize="off"
-          spellcheck="false"
-          aria-label="Terminal command input"
-          placeholder="type a command..."
-        />
-      </div>
-    </div>
-  </div>
+<!-- Robot mascot -->
+<div id="mascot" aria-hidden="true">
+  <div id="mascot-bubble" class="mascot-bubble"></div>
+  <svg id="mascot-svg" viewBox="0 0 48 60" xmlns="http://www.w3.org/2000/svg">
+    <line x1="24" y1="10" x2="24" y2="4" stroke="#7ed99a" stroke-width="2" stroke-linecap="round"/>
+    <circle cx="24" cy="3" r="2.5" fill="#7ed99a"/>
+    <rect x="10" y="10" width="28" height="22" rx="6" fill="#161b20" stroke="#5fd4e3" stroke-width="1.6"/>
+    <rect id="eye-l" x="14" y="17" width="7" height="7" rx="2" fill="#5fd4e3"/>
+    <rect id="eye-r" x="27" y="17" width="7" height="7" rx="2" fill="#5fd4e3"/>
+    <rect x="16" y="19" width="3" height="3" rx="1" fill="#0a0c0e"/>
+    <rect x="29" y="19" width="3" height="3" rx="1" fill="#0a0c0e"/>
+    <rect x="16" y="27" width="16" height="3" rx="1.5" fill="#ffb454"/>
+    <rect x="20" y="32" width="8" height="4" rx="2" fill="#1e252c"/>
+    <rect x="8" y="36" width="32" height="20" rx="7" fill="#161b20" stroke="#5fd4e3" stroke-width="1.4"/>
+    <circle id="chest-light" cx="24" cy="46" r="4" fill="#ffb454" opacity="0.85"/>
+    <rect x="1" y="38" width="7" height="12" rx="3.5" fill="#161b20" stroke="#5fd4e3" stroke-width="1.2"/>
+    <rect x="40" y="38" width="7" height="12" rx="3.5" fill="#161b20" stroke="#5fd4e3" stroke-width="1.2"/>
+    <rect x="13" y="55" width="8" height="5" rx="2.5" fill="#1e252c" stroke="#5fd4e3" stroke-width="1"/>
+    <rect x="27" y="55" width="8" height="5" rx="2.5" fill="#1e252c" stroke="#5fd4e3" stroke-width="1"/>
+  </svg>
+</div>
 
-  <!-- ===== Robot mascot ===== -->
-  <div id="mascot" aria-hidden="true">
-    <div id="mascot-bubble" class="mascot-bubble"></div>
-    <svg id="mascot-svg" viewBox="0 0 48 60" xmlns="http://www.w3.org/2000/svg">
-      <!-- Antenna -->
-      <line id="antenna-stem" x1="24" y1="10" x2="24" y2="4" stroke="#7ed99a" stroke-width="2" stroke-linecap="round"/>
-      <circle id="antenna-ball" cx="24" cy="3" r="2.5" fill="#7ed99a"/>
-      <!-- Head -->
-      <rect x="10" y="10" width="28" height="22" rx="6" fill="#161b20" stroke="#5fd4e3" stroke-width="1.6"/>
-      <!-- Eyes -->
-      <rect id="eye-l" x="14" y="17" width="7" height="7" rx="2" fill="#5fd4e3"/>
-      <rect id="eye-r" x="27" y="17" width="7" height="7" rx="2" fill="#5fd4e3"/>
-      <!-- Eye pupils -->
-      <rect id="pupil-l" x="16" y="19" width="3" height="3" rx="1" fill="#0a0c0e"/>
-      <rect id="pupil-r" x="29" y="19" width="3" height="3" rx="1" fill="#0a0c0e"/>
-      <!-- Mouth -->
-      <rect id="mouth" x="16" y="27" width="16" height="3" rx="1.5" fill="#ffb454"/>
-      <!-- Neck -->
-      <rect x="20" y="32" width="8" height="4" rx="2" fill="#1e252c"/>
-      <!-- Body -->
-      <rect x="8" y="36" width="32" height="20" rx="7" fill="#161b20" stroke="#5fd4e3" stroke-width="1.4"/>
-      <!-- Chest light -->
-      <circle id="chest-light" cx="24" cy="46" r="4" fill="#ffb454" opacity="0.85"/>
-      <!-- Arms -->
-      <rect id="arm-l" x="1" y="38" width="7" height="12" rx="3.5" fill="#161b20" stroke="#5fd4e3" stroke-width="1.2"/>
-      <rect id="arm-r" x="40" y="38" width="7" height="12" rx="3.5" fill="#161b20" stroke="#5fd4e3" stroke-width="1.2"/>
-      <!-- Legs -->
-      <rect x="13" y="55" width="8" height="5" rx="2.5" fill="#1e252c" stroke="#5fd4e3" stroke-width="1"/>
-      <rect x="27" y="55" width="8" height="5" rx="2.5" fill="#1e252c" stroke="#5fd4e3" stroke-width="1"/>
-    </svg>
-  </div>
 </body>
 </html>
