@@ -29,12 +29,12 @@
   --topbar-h: 46px;
 }
 
-/* Auditor mode overrides */
-[data-mode="auditor"] {
-  --accent: #4a9eff;
-  --accent-dim: rgba(74,158,255,0.14);
-  --accent-border: rgba(74,158,255,0.35);
-}
+/* KR mode: same accent colors as EN */
+
+
+/* Language visibility */
+[data-mode="en"] .lang-kr { display: none !important; }
+[data-mode="kr"] .lang-en { display: none !important; }
 
 html, body { height: 100%; }
 @media (prefers-reduced-motion: reduce) {
@@ -188,11 +188,11 @@ code {
 
 /* ===== Section labels (mode-aware) ===== */
 .section-label { font-family: var(--mono); font-size: .76rem; font-weight: 600; color: var(--accent); margin-bottom: .8rem; display: block; }
-[data-mode="researcher"] .section-label::before { content: attr(data-r); }
-[data-mode="auditor"]    .section-label::before { content: attr(data-a); }
+[data-mode="en"] .section-label::before { content: attr(data-r); }
+[data-mode="kr"]    .section-label::before { content: attr(data-a); }
 
-[data-mode="researcher"] .nav-label::before { content: attr(data-r); }
-[data-mode="auditor"]    .nav-label::before { content: attr(data-a); }
+[data-mode="en"] .nav-label::before { content: attr(data-r); }
+[data-mode="kr"]    .nav-label::before { content: attr(data-a); }
 
 /* ===== Main panels ===== */
 .app-main { flex: 1; min-width: 0; position: relative; }
@@ -243,7 +243,7 @@ h3 { font-size: 1.1rem; line-height: 1.3; margin-bottom: .4rem; }
 
 .qa-name { font-family: var(--mono); font-size: clamp(1.4rem,3vw,2rem); font-weight: 700; letter-spacing: -.02em; margin-bottom: .3rem; }
 .qa-tagline { font-family: var(--mono); font-size: .84rem; color: var(--text-dim); margin-bottom: .4rem; }
-[data-mode="auditor"] .qa-tagline { content: "Cyber Risk & Compliance Consultant · IT Audit"; }
+[data-mode="kr"] .qa-tagline { content: "Cyber Risk & Compliance Consultant · IT Audit"; }
 .qa-hint { font-family: var(--mono); font-size: .76rem; color: var(--muted); margin: 0; }
 
 .qa-thread { display: flex; flex-direction: column; gap: .8rem; min-height: 60px; }
@@ -296,15 +296,15 @@ h3 { font-size: 1.1rem; line-height: 1.3; margin-bottom: .4rem; }
   position: relative;
   width: 100%;
   max-width: 900px;
-  height: 400px;
-  background: #060a0d;
+  aspect-ratio: 900/440;
+  background: #080b0f;
   border: 1px solid var(--line-strong);
   border-radius: var(--radius);
-  overflow: visible;
+  overflow: hidden;
   background-image:
-    linear-gradient(rgba(95,212,227,.07) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(95,212,227,.07) 1px, transparent 1px);
-  background-size: 50px 50px;
+    linear-gradient(rgba(95,212,227,.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(95,212,227,.04) 1px, transparent 1px);
+  background-size: 45px 45px;
 }
 
 .map-lines {
@@ -335,36 +335,47 @@ h3 { font-size: 1.1rem; line-height: 1.3; margin-bottom: .4rem; }
 }
 
 .pin-dot {
-  width: 14px;
-  height: 14px;
+  width: 10px;
+  height: 10px;
   border-radius: 50%;
   background: var(--cyan);
   border: 2px solid var(--bg);
-  box-shadow: 0 0 10px var(--cyan), 0 0 20px rgba(95,212,227,.4);
+  box-shadow: 0 0 8px var(--cyan);
   transition: transform 140ms;
-  flex-shrink: 0;
 }
 
 .pin-dot.pin-home {
   background: var(--accent);
-  box-shadow: 0 0 12px var(--accent), 0 0 24px rgba(255,180,84,.5);
-  width: 17px;
-  height: 17px;
+  box-shadow: 0 0 12px var(--accent);
+  width: 13px;
+  height: 13px;
 }
 
-.map-pin:hover .pin-dot { transform: scale(1.35); cursor: pointer; }
+@media (prefers-reduced-motion: no-preference) {
+  .pin-dot { animation: pin-ping 2.4s ease-out infinite; }
+  .map-pin:nth-child(3) .pin-dot { animation-delay: .4s; }
+  .map-pin:nth-child(4) .pin-dot { animation-delay: .8s; }
+  .map-pin:nth-child(5) .pin-dot { animation-delay: 1.2s; }
+  .map-pin:nth-child(6) .pin-dot { animation-delay: 1.6s; }
+}
+
+@keyframes pin-ping {
+  0%  { box-shadow: 0 0 0 0 rgba(95,212,227,.7); }
+  70% { box-shadow: 0 0 0 8px rgba(95,212,227,0); }
+  100%{ box-shadow: 0 0 0 0 rgba(95,212,227,0); }
+}
+
+.map-pin:hover .pin-dot { transform: scale(1.4); }
 
 .pin-label {
   font-family: var(--mono);
-  font-size: .68rem;
-  color: var(--text);
+  font-size: .66rem;
+  color: var(--text-dim);
   white-space: nowrap;
-  background: rgba(6,10,13,.85);
-  border: 1px solid var(--line-strong);
-  padding: .15rem .4rem;
+  background: rgba(10,12,14,.75);
+  padding: .1rem .35rem;
   border-radius: 3px;
   pointer-events: none;
-  margin-top: 3px;
 }
 
 .pin-card {

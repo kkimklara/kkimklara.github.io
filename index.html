@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-mode="researcher">
+<html lang="en" data-mode="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -17,7 +17,7 @@
 
 <div class="app-shell">
 
-  <!-- ===== Topbar ===== -->
+  <!-- Topbar -->
   <header class="app-topbar">
     <div class="topbar-left">
       <span class="dot dot-red"></span>
@@ -26,22 +26,20 @@
       <span class="topbar-title">klara@security: <span id="topbarPath">~/home</span></span>
     </div>
 
-    <div class="mode-toggle" role="group" aria-label="View mode">
-      <button class="mode-btn is-active" data-mode="researcher">researcher</button>
+    <div class="mode-toggle" role="group" aria-label="Language">
+      <button class="mode-btn is-active" data-mode="en">EN</button>
       <span class="mode-sep">/</span>
-      <button class="mode-btn" data-mode="auditor">auditor</button>
+      <button class="mode-btn" data-mode="kr">KR</button>
     </div>
 
     <button class="sidebar-toggle" id="sidebarToggle" aria-label="Toggle navigation" aria-expanded="false">menu</button>
 
-    <div class="tlp-pill">
-      <span class="tlp-swatch"></span>TLP:CLEAR
-    </div>
+    <div class="tlp-pill"><span class="tlp-swatch"></span>TLP:CLEAR</div>
   </header>
 
   <div class="app-body">
 
-    <!-- ===== Sidebar ===== -->
+    <!-- Sidebar -->
     <aside class="app-sidebar" id="appSidebar">
       <div class="sidebar-id">
         <div class="sidebar-avatar">CK</div>
@@ -54,39 +52,39 @@
       <nav class="sidebar-nav">
         <button class="nav-item is-active" data-panel="home">
           <svg class="nav-icon" viewBox="0 0 24 24"><path d="M4 5h16v14H4z"/><path d="M7 9l3 3-3 3M13 15h4"/></svg>
-          <span class="nav-label" data-r="home" data-a="home">home</span>
+          <span class="nav-label" data-en="home" data-kr="홈"></span>
         </button>
         <button class="nav-item" data-panel="journey">
           <svg class="nav-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a13 13 0 0 1 0 18A13 13 0 0 1 12 3z"/></svg>
-          <span class="nav-label" data-r="journey.log" data-a="journey">journey</span>
+          <span class="nav-label" data-en="journey.log" data-kr="여정"></span>
         </button>
         <button class="nav-item" data-panel="about">
           <svg class="nav-icon" viewBox="0 0 24 24"><circle cx="12" cy="8" r="3.4"/><path d="M5 20c1.2-4 4-6 7-6s5.8 2 7 6"/></svg>
-          <span class="nav-label" data-r="about.md" data-a="about">about</span>
+          <span class="nav-label" data-en="about.md" data-kr="소개"></span>
         </button>
         <button class="nav-item" data-panel="education">
           <svg class="nav-icon" viewBox="0 0 24 24"><path d="M2 9l10-4 10 4-10 4-10-4z"/><path d="M6 11v5c0 1.3 2.7 2.5 6 2.5s6-1.2 6-2.5v-5"/></svg>
-          <span class="nav-label" data-r="education.log" data-a="education">education</span>
+          <span class="nav-label" data-en="education.log" data-kr="학력"></span>
         </button>
         <button class="nav-item" data-panel="experience">
           <svg class="nav-icon" viewBox="0 0 24 24"><rect x="3" y="8" width="18" height="11" rx="1.4"/><path d="M8 8V6a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
-          <span class="nav-label" data-r="experience.log" data-a="experience">experience</span>
+          <span class="nav-label" data-en="experience.log" data-kr="경력"></span>
         </button>
         <button class="nav-item" data-panel="projects">
           <svg class="nav-icon" viewBox="0 0 24 24"><path d="M3 7h6l2 2h10v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V7z"/></svg>
-          <span class="nav-label" data-r="projects.dir" data-a="projects">projects</span>
+          <span class="nav-label" data-en="projects.dir" data-kr="프로젝트"></span>
         </button>
         <button class="nav-item" data-panel="publications">
           <svg class="nav-icon" viewBox="0 0 24 24"><path d="M4 4.8c2.4-.9 5-.9 7 .6v13c-2-1.5-4.6-1.5-7-.6V4.8z"/><path d="M20 4.8c-2.4-.9-5-.9-7 .6v13c2-1.5 4.6-1.5 7-.6V4.8z"/></svg>
-          <span class="nav-label" data-r="publications.bib" data-a="publications">publications</span>
+          <span class="nav-label" data-en="publications.bib" data-kr="논문"></span>
         </button>
         <button class="nav-item" data-panel="talks">
           <svg class="nav-icon" viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3M9 21h6"/></svg>
-          <span class="nav-label" data-r="talks.log" data-a="talks &amp; awards">talks &amp; awards</span>
+          <span class="nav-label" data-en="talks.log" data-kr="발표 &amp; 수상"></span>
         </button>
         <button class="nav-item" data-panel="contact">
           <svg class="nav-icon" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="1.6"/><path d="M3 6.5l9 6.5 9-6.5"/></svg>
-          <span class="nav-label" data-r="contact.sh" data-a="contact">contact</span>
+          <span class="nav-label" data-en="contact.sh" data-kr="연락처"></span>
         </button>
       </nav>
 
@@ -94,14 +92,14 @@
         <a href="mailto:bobconsultantcy@gmail.com" class="sidebar-link" aria-label="Email">✉</a>
         <a href="https://www.linkedin.com/in/chaeyoung-klara-kim/" target="_blank" rel="noreferrer" class="sidebar-link">in</a>
         <a href="https://securescue.tistory.com/" target="_blank" rel="noreferrer" class="sidebar-link">✎</a>
-        <button class="sidebar-link terminal-trigger" id="terminalOpenBtn" title="Open terminal ( ` )">&gt;_</button>
+        <button class="sidebar-link terminal-trigger" id="terminalOpenBtn" title="terminal ( ` )">&gt;_</button>
       </div>
     </aside>
 
-    <!-- ===== Panels ===== -->
+    <!-- Panels -->
     <main class="app-main" id="mainPanel">
 
-      <!-- HOME — Q&A -->
+      <!-- HOME Q&A -->
       <section class="panel is-active" id="panel-home" data-panel="home">
         <div class="qa-layout">
           <div class="qa-intro">
@@ -124,230 +122,225 @@
                 <rect x="27" y="55" width="8" height="5" rx="2.5" fill="#1e252c" stroke="#5fd4e3" stroke-width="1"/>
               </svg>
             </div>
-            <div class="qa-greeting">
+            <div>
               <p class="qa-name">ChaeYoung <span class="accent-amber">"Klara"</span> Kim</p>
               <p class="qa-tagline" id="qaTagline">Cyber Risk &amp; Compliance · Robot/IoT/CPS Security</p>
-              <p class="qa-hint">Ask me anything below ↓</p>
+              <p class="qa-hint" id="qaHint">Ask me anything below ↓</p>
             </div>
           </div>
 
           <div class="qa-thread" id="qaThread" aria-live="polite"></div>
 
           <div class="qa-chips" id="qaChips">
-            <button class="qa-chip" data-q="who">Who are you?</button>
-            <button class="qa-chip" data-q="deloitte">What do you do at Deloitte?</button>
-            <button class="qa-chip" data-q="comply">What's Comply-to-Pwn?</button>
-            <button class="qa-chip" data-q="robot">Tell me about robot security</button>
-            <button class="qa-chip" data-q="bob">What is BoB?</button>
-            <button class="qa-chip" data-q="now">What are you working on now?</button>
+            <button class="qa-chip" data-q="who"      data-en="Who are you?"                  data-kr="어떤 사람인가요?"></button>
+            <button class="qa-chip" data-q="deloitte" data-en="What do you do at Deloitte?"    data-kr="딜로이트에서 하는 일은?"></button>
+            <button class="qa-chip" data-q="comply"   data-en="What's Comply-to-Pwn?"          data-kr="Comply-to-Pwn이 뭔가요?"></button>
+            <button class="qa-chip" data-q="robot"    data-en="Tell me about robot security"   data-kr="로봇 보안 연구 얘기"></button>
+            <button class="qa-chip" data-q="bob"      data-en="What is BoB?"                   data-kr="BoB가 뭔가요?"></button>
+            <button class="qa-chip" data-q="now"      data-en="What are you working on now?"   data-kr="지금은 뭘 하고 있나요?"></button>
           </div>
         </div>
       </section>
 
       <!-- JOURNEY MAP -->
       <section class="panel" id="panel-journey" data-panel="journey">
-        <p class="section-label" data-r="// journey.log" data-a="Journey"></p>
-        <h2>Where I've been.</h2>
+        <p class="section-label" data-en="// journey.log" data-kr="// 여정.log"></p>
+        <h2 class="t-h2" data-en="Where I've been." data-kr="내가 걸어온 길."></h2>
 
         <div class="map-wrap">
-          <!-- SVG connection lines layer -->
-          <svg class="map-lines" viewBox="0 0 900 440" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+          <svg class="map-lines" viewBox="0 0 900 400" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
             <defs>
               <marker id="arrowhead" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
                 <path d="M0,0 L6,3 L0,6 Z" fill="var(--accent)"/>
               </marker>
             </defs>
-            <!-- Seoul → Hillside NJ -->
             <path class="map-line" d="M 733,130 Q 490,40 253,123" marker-end="url(#arrowhead)"/>
-            <!-- Seoul → San Diego -->
             <path class="map-line" d="M 733,130 Q 440,20 150,142"/>
-            <!-- Seoul → Bucharest -->
             <path class="map-line" d="M 733,130 Q 612,80 492,114"/>
-            <!-- Seoul → Taoyuan -->
             <path class="map-line" d="M 733,130 Q 726,145 720,160"/>
           </svg>
 
-          <!-- Location pins -->
-          <div class="map-pin" data-pin="seoul" style="left:81.4%;top:29.5%">
+          <div class="map-pin" data-pin="seoul" style="left:81.4%;top:32%">
             <div class="pin-dot pin-home"></div>
-            <span class="pin-label">Seoul</span>
+            <span class="pin-label">Seoul 🏠</span>
           </div>
-
-          <div class="map-pin" data-pin="nj" style="left:28.1%;top:27.7%">
+          <div class="map-pin" data-pin="nj" style="left:28.1%;top:30%">
             <div class="pin-dot"></div>
             <span class="pin-label">Hillside, NJ</span>
           </div>
-
-          <div class="map-pin" data-pin="sandiego" style="left:16.6%;top:32.2%">
+          <div class="map-pin" data-pin="sandiego" style="left:16.6%;top:35%">
             <div class="pin-dot"></div>
             <span class="pin-label">San Diego</span>
           </div>
-
-          <div class="map-pin" data-pin="bucharest" style="left:54.6%;top:25.9%">
+          <div class="map-pin" data-pin="bucharest" style="left:54.6%;top:28%">
             <div class="pin-dot"></div>
             <span class="pin-label">Bucharest</span>
           </div>
-
-          <div class="map-pin" data-pin="taoyuan" style="left:80%;top:36.8%">
+          <div class="map-pin" data-pin="taoyuan" style="left:80%;top:40%">
             <div class="pin-dot"></div>
             <span class="pin-label">Taoyuan</span>
           </div>
 
-          <!-- Pin detail cards -->
+          <!-- Pin cards -->
           <div class="pin-card" id="card-seoul" style="display:none">
             <button class="pin-card-close" aria-label="Close">✕</button>
             <p class="pin-card-tag">🏠 Home Base</p>
             <h3>Seoul, South Korea</h3>
-            <ul>
-              <li>Born &amp; raised here</li>
-              <li>Deloitte Anjin LLC (Dec 2025–present)</li>
-              <li><span lang="ko">대왕중학교 · 창덕여자고등학교</span></li>
-              <li>서울여자대학교 · SWLUG 25th</li>
-              <li>BoB 13th cohort · KSC 2023</li>
-            </ul>
+            <p class="lang-en">Born and raised. Currently at Deloitte Anjin LLC (Dec 2025–). 대왕중 → 창덕여고 → 서울여대 · SWLUG 25th · BoB 13th.</p>
+            <p class="lang-kr">고향. 현재 딜로이트 안진 재직 중(2025.12–). 대왕중 → 창덕여고 → 서울여대 · SWLUG 25기 · BoB 13기.</p>
           </div>
-
           <div class="pin-card" id="card-nj" style="display:none">
             <button class="pin-card-close" aria-label="Close">✕</button>
             <p class="pin-card-tag">✈ Study Abroad</p>
             <h3>Hillside, New Jersey, USA</h3>
-            <ul>
-              <li>Hillside Elementary School</li>
-              <li>A year living and studying abroad</li>
-              <li>First exposure to a different system</li>
-            </ul>
+            <p class="lang-en">Attended Hillside Elementary School. A year of living and studying abroad — first exposure to a different world.</p>
+            <p class="lang-kr">Hillside 초등학교 재학. 처음으로 다른 세계를 경험한 해외 유학 1년.</p>
           </div>
-
           <div class="pin-card" id="card-sandiego" style="display:none">
             <button class="pin-card-close" aria-label="Close">✕</button>
             <p class="pin-card-tag">🎤 Conference</p>
             <h3>San Diego, California, USA</h3>
-            <ul>
-              <li>NDSS Symposium 2025</li>
-              <li>SDIoTSec Workshop</li>
-              <li>Poster: FORESIGHT framework for robotics &amp; IoT threat modeling</li>
-            </ul>
+            <p class="lang-en">NDSS Symposium 2025 · SDIoTSec Workshop. Poster presentation: FORESIGHT — a unified threat modeling framework for robotics &amp; IoT.</p>
+            <p class="lang-kr">NDSS 2025 · SDIoTSec 워크숍. 포스터 발표: FORESIGHT — 로봇 및 IoT를 위한 통합 위협 모델링 프레임워크.</p>
           </div>
-
           <div class="pin-card" id="card-bucharest" style="display:none">
             <button class="pin-card-close" aria-label="Close">✕</button>
             <p class="pin-card-tag">🎤 Conference</p>
             <h3>Bucharest, Romania</h3>
-            <ul>
-              <li>DefCamp 2025</li>
-              <li>Research presentation on CubeSat / space security</li>
-              <li>Kinryu Labs (formerly SATCR4K) collaboration</li>
-            </ul>
+            <p class="lang-en">DefCamp 2025. Research presentation on CubeSat / space security. Collaboration with Kinryu Labs (formerly SATCR4K).</p>
+            <p class="lang-kr">DefCamp 2025. 큐브샛 / 우주 보안 연구 발표. Kinryu Labs (구 SATCR4K) 협업.</p>
           </div>
-
           <div class="pin-card" id="card-taoyuan" style="display:none">
             <button class="pin-card-close" aria-label="Close">✕</button>
             <p class="pin-card-tag">🌏 Program</p>
             <h3>Taoyuan, Taiwan</h3>
-            <ul>
-              <li>Global Cybersecurity Camp (GCC) 2025</li>
-              <li>International cybersecurity talent program</li>
-              <li>Cross-border collaboration with SG &amp; TW teams</li>
-            </ul>
+            <p class="lang-en">Global Cybersecurity Camp (GCC) 2025. International cybersecurity talent program — cross-border collaboration with SG &amp; TW teams.</p>
+            <p class="lang-kr">GCC(Global Cybersecurity Camp) 2025. 싱가포르·대만 팀과의 국제 사이버보안 협력 프로그램.</p>
           </div>
         </div>
-
-        <p class="map-hint">Click a pin to see details</p>
+        <p class="map-hint" data-en="Click a pin to see details" data-kr="핀을 클릭해 자세히 보세요"></p>
       </section>
 
       <!-- ABOUT -->
       <section class="panel" id="panel-about" data-panel="about">
-        <p class="section-label" data-r="// about.md" data-a="About"></p>
-        <h2>One person, two threat models.</h2>
+        <p class="section-label" data-en="// about.md" data-kr="// 소개.md"></p>
+        <h2 class="t-h2" data-en="One person, two threat models." data-kr="한 사람, 두 개의 위협 모델."></h2>
 
-        <svg class="venn-diagram" viewBox="0 0 460 230" role="img" aria-label="Venn diagram: Compliance Audit meets Offensive Research — that's Klara">
+        <svg class="venn-diagram" viewBox="0 0 460 230" role="img" aria-label="Venn diagram">
           <circle cx="170" cy="115" r="98" class="venn-circle venn-cyan"/>
           <circle cx="290" cy="115" r="98" class="venn-circle venn-amber"/>
-          <text x="105" y="60" class="venn-label">COMPLIANCE</text>
-          <text x="105" y="80" class="venn-label">AUDIT</text>
+          <text x="105" y="60"  class="venn-label lang-en">COMPLIANCE</text>
+          <text x="105" y="80"  class="venn-label lang-en">AUDIT</text>
+          <text x="105" y="70"  class="venn-label lang-kr">컴플라이언스</text>
+          <text x="105" y="88"  class="venn-label lang-kr">감사</text>
           <text x="100" y="170" class="venn-sub">ISMS-P · SOC 2</text>
           <text x="100" y="188" class="venn-sub">HIPAA</text>
-          <text x="318" y="60" class="venn-label">OFFENSIVE</text>
-          <text x="318" y="80" class="venn-label">RESEARCH</text>
+          <text x="318" y="60"  class="venn-label lang-en">OFFENSIVE</text>
+          <text x="318" y="80"  class="venn-label lang-en">RESEARCH</text>
+          <text x="318" y="70"  class="venn-label lang-kr">공격 보안</text>
+          <text x="318" y="88"  class="venn-label lang-kr">연구</text>
           <text x="300" y="170" class="venn-sub">STRIDE · LINDDUN</text>
           <text x="300" y="188" class="venn-sub">ATT&amp;CK</text>
           <text x="230" y="115" class="venn-center">KLARA</text>
-          <text x="230" y="133" class="venn-center-sub">evidence ⇄ exploit</text>
+          <text x="230" y="133" class="venn-center-sub lang-en">evidence ⇄ exploit</text>
+          <text x="230" y="133" class="venn-center-sub lang-kr">증거 ⇄ 익스플로잇</text>
         </svg>
 
         <div class="about-copy">
-          <p>I split my time between two ways of asking the same question — "where does this actually break?" By day, I support ISMS-P certification, SOC&nbsp;2 and HIPAA-related IT audit, and third-party security assessments, reading controls the way an auditor has to: literally, evidentially, line by line.</p>
-          <p>Outside client work, I research how those same assumptions hold up in service robots, IoT-connected spaces, and cyber-physical systems — threat modeling with STRIDE and LINDDUN, and occasionally turning audit findings into proof-of-concept attack paths just to see if the paperwork was right.</p>
-          <p>That habit started early. I learned Linux in a campus user group before I learned how to write an audit finding, and spent a year leading newsletter coverage for a national security training program before I ever sat in a client meeting. I'm still most comfortable where compliance and offense meet.</p>
+          <p class="lang-en">I split my time between two ways of asking the same question — "where does this actually break?" By day, I support ISMS-P certification, SOC&nbsp;2 and HIPAA-related IT audit, and third-party security assessments, reading controls the way an auditor has to: literally, evidentially, line by line.</p>
+          <p class="lang-kr">저는 같은 질문을 두 가지 방식으로 묻습니다 — "실제로 어디서 무너지는가?" 낮에는 ISMS-P 인증, SOC&nbsp;2·HIPAA IT 감사, 제3자 보안 평가를 지원해요. 감사자의 시선으로, 증거에 기반해, 한 줄 한 줄 통제 항목을 읽어냅니다.</p>
+
+          <p class="lang-en">Outside client work, I research how those same assumptions hold up in service robots, IoT-connected spaces, and cyber-physical systems — threat modeling with STRIDE and LINDDUN, and occasionally turning audit findings into proof-of-concept attack paths just to see if the paperwork was right.</p>
+          <p class="lang-kr">그 외 시간에는 서비스 로봇, IoT 연결 공간, 사이버-물리 시스템에서 같은 가정이 얼마나 버티는지 연구합니다. STRIDE와 LINDDUN으로 위협을 모델링하고, 가끔은 감사 파인딩을 PoC 공격 경로로 바꿔서 '서류는 맞았나'를 확인하기도 해요.</p>
+
+          <p class="lang-en">That habit started early. I learned Linux in a campus user group before I learned how to write an audit finding, and spent a year leading newsletter coverage for a national security training program before I ever sat in a client meeting. I'm still most comfortable where compliance and offense meet.</p>
+          <p class="lang-kr">이 습관은 일찍 시작됐어요. 감사 파인딩을 쓰기 전에 캠퍼스 리눅스 사용자 그룹에서 Linux를 배웠고, 클라이언트 미팅에 들어가기 전에 국가 보안 훈련 프로그램의 뉴스레터 편집장을 했어요. 컴플라이언스와 공격 보안이 만나는 지점이 여전히 가장 편합니다.</p>
         </div>
       </section>
 
       <!-- EDUCATION -->
       <section class="panel" id="panel-education" data-panel="education">
-        <p class="section-label" data-r="// education.log" data-a="Education"></p>
-        <h2>From a Linux user group to client floors.</h2>
+        <p class="section-label" data-en="// education.log" data-kr="// 학력.log"></p>
+        <h2 class="t-h2" data-en="From a Linux user group to client floors." data-kr="Linux 사용자 그룹에서 컨설팅 현장까지."></h2>
 
-        <p class="edu-group-label">Formal Education</p>
+        <p class="edu-group-label" data-en="Formal Education" data-kr="학력"></p>
         <div class="edu-timeline">
           <article class="edu-item">
             <div class="edu-marker"><svg viewBox="0 0 24 24"><path d="M3 14l8-2 7-7 2 2-7 7-2 8-2-1-1-4-3-3-1-2z"/></svg></div>
             <div class="edu-content">
-              <span class="edu-stage">Elementary</span>
-              <h3>Seoul, South Korea <span class="sep">+</span> Hillside Elementary School</h3>
-              <p class="edu-meta">A year abroad at Hillside Elementary School, Hillside, New Jersey, USA</p>
+              <span class="edu-stage lang-en">Elementary</span>
+              <span class="edu-stage lang-kr">초등학교</span>
+              <h3>
+                <span class="lang-en">Seoul, South Korea + Hillside Elementary School</span>
+                <span class="lang-kr">서울 + Hillside Elementary School</span>
+              </h3>
+              <p class="edu-meta lang-en">A year abroad at Hillside Elementary School, Hillside, New Jersey, USA</p>
+              <p class="edu-meta lang-kr">미국 뉴저지주 힐사이드, Hillside Elementary School 유학 1년</p>
             </div>
           </article>
           <article class="edu-item">
             <div class="edu-marker"><svg viewBox="0 0 24 24"><path d="M2 9l10-4 10 4-10 4-10-4z"/><path d="M6 11v5c0 1.3 2.7 2.5 6 2.5s6-1.2 6-2.5v-5"/></svg></div>
             <div class="edu-content">
-              <span class="edu-stage">Middle School</span>
-              <h3><span lang="ko">대왕중학교</span> <span class="edu-en">(Daewang Middle School)</span></h3>
+              <span class="edu-stage lang-en">Middle School</span>
+              <span class="edu-stage lang-kr">중학교</span>
+              <h3><span lang="ko">대왕중학교</span> <span class="edu-en lang-en">(Daewang Middle School)</span></h3>
               <p class="edu-meta">Seoul, South Korea</p>
             </div>
           </article>
           <article class="edu-item">
             <div class="edu-marker"><svg viewBox="0 0 24 24"><path d="M2 9l10-4 10 4-10 4-10-4z"/><path d="M6 11v5c0 1.3 2.7 2.5 6 2.5s6-1.2 6-2.5v-5"/></svg></div>
             <div class="edu-content">
-              <span class="edu-stage">High School</span>
-              <h3><span lang="ko">창덕여자고등학교</span> <span class="edu-en">(Changdeok Girls' High School)</span></h3>
+              <span class="edu-stage lang-en">High School</span>
+              <span class="edu-stage lang-kr">고등학교</span>
+              <h3><span lang="ko">창덕여자고등학교</span> <span class="edu-en lang-en">(Changdeok Girls' High School)</span></h3>
               <p class="edu-meta">Seoul, South Korea</p>
             </div>
           </article>
           <article class="edu-item">
             <div class="edu-marker edu-marker-uni"><svg viewBox="0 0 24 24"><path d="M2 9l10-5 10 5-10 5-10-5z"/><path d="M6 12.5v5c0 1.3 2.7 2.5 6 2.5s6-1.2 6-2.5v-5"/><path d="M22 9v6"/></svg></div>
             <div class="edu-content">
-              <span class="edu-stage">University</span>
-              <h3><span lang="ko">서울여자대학교</span> <span class="edu-en">(Seoul Women's University)</span></h3>
+              <span class="edu-stage lang-en">University</span>
+              <span class="edu-stage lang-kr">대학교</span>
+              <h3><span lang="ko">서울여자대학교</span> <span class="edu-en lang-en">(Seoul Women's University)</span></h3>
               <p class="edu-meta">Seoul, South Korea</p>
-              <ul class="edu-detail"><li>SWLUG (Seoul Women's University Linux User Group), 25th cohort</li></ul>
+              <ul class="edu-detail">
+                <li class="lang-en">SWLUG (Seoul Women's University Linux User Group), 25th cohort</li>
+                <li class="lang-kr">SWLUG (서울여자대학교 리눅스 사용자 그룹), 25기</li>
+              </ul>
             </div>
           </article>
         </div>
 
-        <p class="edu-group-label edu-group-label-second">Community &amp; Training</p>
+        <p class="edu-group-label edu-group-label-second" data-en="Community &amp; Training" data-kr="커뮤니티 &amp; 교육 프로그램"></p>
         <div class="edu-timeline">
           <article class="edu-item">
             <div class="edu-marker edu-marker-program"><svg viewBox="0 0 24 24"><path d="M12 2l8 3v6c0 5-3.4 8.6-8 11-4.6-2.4-8-6-8-11V5l8-3z"/></svg></div>
             <div class="edu-content">
-              <span class="edu-stage">Training Program</span>
-              <h3>BoB <span class="edu-en">(Best of the Best), 13th Cohort</span></h3>
-              <p class="edu-meta">KITRI — Korea's national elite cybersecurity talent program</p>
+              <span class="edu-stage lang-en">Training Program</span>
+              <span class="edu-stage lang-kr">교육 프로그램</span>
+              <h3>BoB <span class="edu-en lang-en">(Best of the Best), 13th Cohort</span><span class="lang-kr">(Best of the Best) 13기</span></h3>
+              <p class="edu-meta lang-en">KITRI — Korea's national elite cybersecurity talent program</p>
+              <p class="edu-meta lang-kr">KITRI — 국내 최고 수준의 사이버보안 인재 양성 프로그램</p>
             </div>
           </article>
           <article class="edu-item">
             <div class="edu-marker edu-marker-program"><svg viewBox="0 0 24 24"><path d="M4 5h16v14H4z"/><path d="M4 8h16M8 12h8M8 15h5"/></svg></div>
             <div class="edu-content">
-              <span class="edu-stage">Community Leadership</span>
+              <span class="edu-stage lang-en">Community Leadership</span>
+              <span class="edu-stage lang-kr">커뮤니티 리더십</span>
               <h3>BoB Newsletter</h3>
-              <p class="edu-meta">Reporter Team Lead, 6th cohort <span class="sep">→</span> Editor-in-Chief, 7th cohort</p>
+              <p class="edu-meta lang-en">Reporter Team Lead, 6th cohort → Editor-in-Chief, 7th cohort</p>
+              <p class="edu-meta lang-kr">기자팀장 6기 → 편집장 7기</p>
             </div>
           </article>
           <article class="edu-item">
             <div class="edu-marker edu-marker-program"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a13 13 0 0 1 0 18A13 13 0 0 1 12 3z"/></svg></div>
             <div class="edu-content">
-              <span class="edu-stage">Training Program</span>
-              <h3>Global Cybersecurity Camp <span class="edu-en">(GCC), 2025 Cohort</span></h3>
-              <p class="edu-meta">International cybersecurity talent program, Taoyuan, Taiwan</p>
+              <span class="edu-stage lang-en">Training Program</span>
+              <span class="edu-stage lang-kr">교육 프로그램</span>
+              <h3>Global Cybersecurity Camp <span class="edu-en lang-en">(GCC), 2025 Cohort</span><span class="lang-kr">(GCC) 2025</span></h3>
+              <p class="edu-meta lang-en">International cybersecurity talent program, Taoyuan, Taiwan</p>
+              <p class="edu-meta lang-kr">국제 사이버보안 인재 프로그램, 대만 타오위안</p>
             </div>
           </article>
         </div>
@@ -355,63 +348,84 @@
 
       <!-- EXPERIENCE -->
       <section class="panel" id="panel-experience" data-panel="experience">
-        <p class="section-label" data-r="// experience.log" data-a="Experience"></p>
-        <h2>Selected Experience</h2>
+        <p class="section-label" data-en="// experience.log" data-kr="// 경력.log"></p>
+        <h2 class="t-h2" data-en="Selected Experience" data-kr="주요 경력"></h2>
         <div class="timeline">
+
           <article class="timeline-item">
             <div class="timeline-meta">
               <span class="date">Dec 2025 – Present</span>
               <span class="role-tag">Compliance · IT Audit</span>
             </div>
             <div>
-              <h3>Deloitte Anjin LLC <span class="edu-en">— Cyber Security Consultant</span></h3>
-              <p class="timeline-sub">T&amp;T Cyber Risk &amp; Compliance</p>
-              <ul>
+              <h3>Deloitte Anjin LLC <span class="edu-en lang-en">— Cyber Security Consultant</span><span class="lang-kr">— 사이버 보안 컨설턴트</span></h3>
+              <p class="timeline-sub lang-en">T&amp;T Cyber Risk &amp; Compliance</p>
+              <p class="timeline-sub lang-kr">T&amp;T 사이버 리스크 &amp; 컴플라이언스</p>
+              <ul class="lang-en">
                 <li>Support ISMS initial and re-certification consulting projects for client-confidential global brands.</li>
                 <li>Participate in third-party security assessment and IT audit projects.</li>
                 <li>Support SOC&nbsp;2 and HIPAA-related IT audit work for a Korean listed company's U.S. subsidiary.</li>
               </ul>
+              <ul class="lang-kr">
+                <li>글로벌 기업 대상 ISMS 초기·갱신 인증 컨설팅 프로젝트 지원.</li>
+                <li>제3자 보안 평가 및 IT 감사 프로젝트 참여.</li>
+                <li>국내 상장사의 미국 자회사 대상 SOC&nbsp;2·HIPAA IT 감사 지원.</li>
+              </ul>
             </div>
           </article>
+
           <article class="timeline-item">
             <div class="timeline-meta">
               <span class="date">Mar 2025 – Jun 2025</span>
               <span class="role-tag">Product · WAPPLES</span>
             </div>
             <div>
-              <h3>PentaSecurity <span class="edu-en">— Intern</span></h3>
-              <p class="timeline-sub">Planning Team 1 / WAPPLES Product</p>
-              <ul>
+              <h3>PentaSecurity <span class="edu-en lang-en">— Intern</span><span class="lang-kr">— 인턴</span></h3>
+              <p class="timeline-sub lang-en">Planning Team 1 / WAPPLES Product</p>
+              <p class="timeline-sub lang-kr">기획 1팀 / WAPPLES 제품</p>
+              <ul class="lang-en">
                 <li>Prepared web vulnerability analysis reports and customer-facing documentation.</li>
                 <li>Analyzed PCI-DSS v4.0.1 and other compliance requirements for WAPPLES product strategy.</li>
                 <li>Conducted competitive analysis and supported new business model planning.</li>
               </ul>
+              <ul class="lang-kr">
+                <li>웹 취약점 분석 보고서 및 고객사 대응 문서 작성.</li>
+                <li>WAPPLES 제품 전략 수립을 위한 PCI-DSS v4.0.1 분석.</li>
+                <li>경쟁사 분석 및 신규 비즈니스 모델 기획 지원.</li>
+              </ul>
             </div>
           </article>
+
           <article class="timeline-item">
             <div class="timeline-meta">
               <span class="date">Jan 2024 – Feb 2024</span>
               <span class="role-tag">Policy · Mobility</span>
             </div>
             <div>
-              <h3>Kakao Mobility <span class="edu-en">— Intern</span></h3>
-              <p class="timeline-sub">CR Strategy Office / External Affairs Team</p>
-              <ul>
-                <li>Authored a report on cyber security and data protection in the autonomous vehicle and mobility industry.</li>
-              </ul>
+              <h3>Kakao Mobility <span class="edu-en lang-en">— Intern</span><span class="lang-kr">— 인턴</span></h3>
+              <p class="timeline-sub lang-en">CR Strategy Office / External Affairs Team</p>
+              <p class="timeline-sub lang-kr">CR 전략실 / 대외협력팀</p>
+              <ul class="lang-en"><li>Authored a report on cyber security and data protection in the autonomous vehicle and mobility industry.</li></ul>
+              <ul class="lang-kr"><li>자율주행·모빌리티 산업의 사이버보안 및 데이터 보호에 관한 보고서 작성.</li></ul>
             </div>
           </article>
+
           <article class="timeline-item">
             <div class="timeline-meta">
               <span class="date">Jul 2023 – Aug 2023</span>
               <span class="role-tag">CI/CD · Cloud</span>
             </div>
             <div>
-              <h3>Ericsson-LG R&amp;D <span class="edu-en">— Software Engineering Intern</span></h3>
-              <p class="timeline-sub">CI/CD Testing Team / vCU7 Team</p>
-              <ul>
+              <h3>Ericsson-LG R&amp;D <span class="edu-en lang-en">— Software Engineering Intern</span><span class="lang-kr">— 소프트웨어 엔지니어링 인턴</span></h3>
+              <p class="timeline-sub lang-en">CI/CD Testing Team / vCU7 Team</p>
+              <p class="timeline-sub lang-kr">CI/CD 테스팅 팀 / vCU7 팀</p>
+              <ul class="lang-en">
                 <li>Built a Jenkins-based build pipeline to support namespace cleanup in a Kubernetes environment.</li>
                 <li>Gained experience in agile development, CI/CD workflows, and internal deployment processes.</li>
+              </ul>
+              <ul class="lang-kr">
+                <li>Kubernetes 환경 네임스페이스 정리를 위한 Jenkins 빌드 파이프라인 구축.</li>
+                <li>애자일 개발, CI/CD 워크플로우, 내부 배포 프로세스 경험.</li>
               </ul>
             </div>
           </article>
@@ -420,69 +434,76 @@
 
       <!-- PROJECTS -->
       <section class="panel" id="panel-projects" data-panel="projects">
-        <p class="section-label" data-r="// projects.dir" data-a="Projects"></p>
-        <h2>Featured Projects</h2>
-        <div class="filter-bar" role="group" aria-label="Filter projects">
-          <button class="filter-chip is-active" data-filter="all">all</button>
-          <button class="filter-chip" data-filter="robot">robot security</button>
-          <button class="filter-chip" data-filter="space">space security</button>
-          <button class="filter-chip" data-filter="threat-intel">threat intel</button>
-          <button class="filter-chip" data-filter="ai">ai security</button>
-          <button class="filter-chip" data-filter="research">security research</button>
+        <p class="section-label" data-en="// projects.dir" data-kr="// 프로젝트.dir"></p>
+        <h2 class="t-h2" data-en="Featured Projects" data-kr="주요 프로젝트"></h2>
+        <div class="filter-bar" role="group">
+          <button class="filter-chip is-active" data-filter="all"         data-en="all"           data-kr="전체"></button>
+          <button class="filter-chip" data-filter="robot"                 data-en="robot security" data-kr="로봇 보안"></button>
+          <button class="filter-chip" data-filter="space"                 data-en="space security" data-kr="우주 보안"></button>
+          <button class="filter-chip" data-filter="threat-intel"          data-en="threat intel"   data-kr="위협 인텔리전스"></button>
+          <button class="filter-chip" data-filter="ai"                    data-en="ai security"    data-kr="AI 보안"></button>
+          <button class="filter-chip" data-filter="research"              data-en="security research" data-kr="보안 연구"></button>
         </div>
         <div class="grid project-grid" id="projectGrid">
+
           <article class="card project" data-tags="robot">
             <svg class="project-icon" viewBox="0 0 24 24"><rect x="5" y="9" width="14" height="10" rx="2"/><circle cx="9" cy="14" r="1.3"/><circle cx="15" cy="14" r="1.3"/><path d="M12 9V5M9 5h6"/></svg>
-            <span class="tag">Team Lead · Robot Security</span>
-            <h3>Service Robot Security Consulting</h3>
-            <p>Led a security consulting project focused on vulnerability assessment, threat modeling, and security requirement derivation for autonomous service robots.</p>
-            <ul>
-              <li>LG Electronics service robot security consulting</li>
-              <li>Robot security model publication contribution with KIRIA and KISA</li>
-              <li>Policy and standardization discussion around service robot cyber security</li>
-            </ul>
+            <span class="tag lang-en">Team Lead · Robot Security</span>
+            <span class="tag lang-kr">팀장 · 로봇 보안</span>
+            <h3 class="lang-en">Service Robot Security Consulting</h3>
+            <h3 class="lang-kr">서비스 로봇 보안 컨설팅</h3>
+            <p class="lang-en">Led a security consulting project focused on vulnerability assessment, threat modeling, and security requirement derivation for autonomous service robots.</p>
+            <p class="lang-kr">자율 서비스 로봇을 대상으로 취약점 평가, 위협 모델링, 보안 요구사항 도출 컨설팅 프로젝트를 리드했습니다.</p>
+            <ul class="lang-en"><li>LG Electronics service robot security consulting</li><li>Robot security model publication with KIRIA and KISA</li><li>Policy and standardization discussion around service robot cyber security</li></ul>
+            <ul class="lang-kr"><li>LG전자 서비스 로봇 보안 컨설팅</li><li>KIRIA·KISA와 로봇 보안 모델 논문 기여</li><li>서비스 로봇 사이버보안 정책·표준화 논의 참여</li></ul>
           </article>
+
           <article class="card project" data-tags="space">
             <svg class="project-icon" viewBox="0 0 24 24"><rect x="9" y="9" width="6" height="6" rx="1" transform="rotate(45 12 12)"/><path d="M4 4l3 3M20 4l-3 3M5 19l4-4M19 19l-4-4"/></svg>
-            <span class="tag">Member · Space Security</span>
+            <span class="tag lang-en">Member · Space Security</span>
+            <span class="tag lang-kr">멤버 · 우주 보안</span>
             <h3>Kinryu Labs <span class="edu-en">(formerly SATCR4K)</span></h3>
-            <p>Member of Kinryu Labs, an international research collective on CubeSat security with Singapore and Taiwan teams, covering space and satellite cyber-physical security risks.</p>
-            <ul>
-              <li>Presented related research at DefCamp, Romania</li>
-              <li>Focused on satellite and embedded system security considerations</li>
-            </ul>
+            <p class="lang-en">Member of Kinryu Labs, an international research collective on CubeSat security with Singapore and Taiwan teams.</p>
+            <p class="lang-kr">싱가포르·대만 팀과 함께하는 국제 큐브샛 보안 연구 그룹 Kinryu Labs의 멤버입니다.</p>
+            <ul class="lang-en"><li>Presented at DefCamp, Romania</li><li>Focused on satellite and embedded system security</li></ul>
+            <ul class="lang-kr"><li>루마니아 DefCamp 연구 발표</li><li>위성 및 임베디드 시스템 보안 집중 연구</li></ul>
             <a class="button project-link" href="https://kinryu.sh" target="_blank" rel="noreferrer">kinryu.sh ↗</a>
           </article>
+
           <article class="card project" data-tags="threat-intel">
             <svg class="project-icon" viewBox="0 0 24 24"><circle cx="10" cy="10" r="6"/><path d="M14.5 14.5L20 20"/></svg>
-            <span class="tag">Threat Intelligence</span>
-            <h3>APT Group Profiling Framework</h3>
-            <p>Designed a profiling framework to identify APT groups by combining hash-unit evidence with tactics, techniques, and procedures.</p>
-            <ul>
-              <li>Published in IEICE Transactions on Information and Systems</li>
-              <li>Best Paper Award at KIISE KSC 2023</li>
-            </ul>
+            <span class="tag lang-en">Threat Intelligence</span>
+            <span class="tag lang-kr">위협 인텔리전스</span>
+            <h3 class="lang-en">APT Group Profiling Framework</h3>
+            <h3 class="lang-kr">APT 그룹 프로파일링 프레임워크</h3>
+            <p class="lang-en">Designed a profiling framework to identify APT groups by combining hash-unit evidence with TTPs.</p>
+            <p class="lang-kr">해시 단위 증거와 TTP를 결합하여 APT 그룹을 식별하는 프로파일링 프레임워크 설계.</p>
+            <ul class="lang-en"><li>Published in IEICE Transactions on Information and Systems</li><li>Best Paper Award at KIISE KSC 2023</li></ul>
+            <ul class="lang-kr"><li>IEICE Transactions on Information and Systems 게재</li><li>KIISE KSC 2023 학부생 논문 경진대회 장려상</li></ul>
           </article>
+
           <article class="card project" data-tags="ai">
             <svg class="project-icon" viewBox="0 0 24 24"><path d="M3 12h3l2-6 4 12 2-8 2 4h5"/></svg>
-            <span class="tag">AI Security · Team Lead</span>
-            <h3>AI Synthetic Voice Detection System</h3>
-            <p>Led a deepvoice detection project covering dataset collection, preprocessing, model development, training, and testing.</p>
-            <ul>
-              <li>SK Telecom CEO Award at the AI Ethics Competition</li>
-              <li>Software patent application and academic publication</li>
-            </ul>
+            <span class="tag lang-en">AI Security · Team Lead</span>
+            <span class="tag lang-kr">AI 보안 · 팀장</span>
+            <h3 class="lang-en">AI Synthetic Voice Detection System</h3>
+            <h3 class="lang-kr">AI 합성음성 탐지 시스템</h3>
+            <p class="lang-en">Led a deepvoice detection project covering dataset collection, preprocessing, model development, training, and testing.</p>
+            <p class="lang-kr">데이터셋 수집, 전처리, 모델 개발·학습·테스트 전 과정을 리드한 딥보이스 탐지 프로젝트.</p>
+            <ul class="lang-en"><li>SK Telecom CEO Award at the AI Ethics Competition</li><li>Software patent application and academic publication</li></ul>
+            <ul class="lang-kr"><li>AI 윤리 경진대회 SK텔레콤 대표이사상</li><li>소프트웨어 특허 출원 및 논문 발표</li></ul>
           </article>
+
           <article class="card project" data-tags="research">
             <svg class="project-icon" viewBox="0 0 24 24"><path d="M4 5h16v14H4z"/><path d="M8 9l-2 3 2 3M16 9l2 3-2 3M13 8l-2 8"/></svg>
-            <span class="tag">Independent Research</span>
+            <span class="tag lang-en">Independent Research</span>
+            <span class="tag lang-kr">독립 연구</span>
             <h3>Comply-to-Pwn</h3>
-            <p>A framework and CLI tool that converts compliance audit artifacts into attack paths, mapping audit evidence to realistic attack chains.</p>
-            <ul>
-              <li>Built <code>comply2pwn</code>: Python CLI with evidence loaders, ATT&amp;CK normalization, blast-radius scoring, and attack graph rendering</li>
-              <li>Packaged as a DEF CON-style research talk (22-slide deck)</li>
-            </ul>
-            <svg class="pipeline-diagram" viewBox="0 0 520 70" role="img" aria-label="Pipeline: evidence → ATT&CK norm. → blast radius → graph">
+            <p class="lang-en">A framework and CLI tool that converts compliance audit artifacts into attack paths, mapping audit evidence to realistic attack chains.</p>
+            <p class="lang-kr">컴플라이언스 감사 산출물을 공격 경로로 변환하는 프레임워크 및 CLI 도구. 감사 증거를 현실적인 공격 체인에 매핑합니다.</p>
+            <ul class="lang-en"><li>Built <code>comply2pwn</code>: Python CLI with evidence loaders, ATT&amp;CK normalization, blast-radius scoring, and attack graph rendering</li><li>Packaged as a DEF CON-style research talk (22-slide deck)</li></ul>
+            <ul class="lang-kr"><li><code>comply2pwn</code> 구현: 증거 로더, ATT&amp;CK 정규화, 블래스트 레디우스 점수화, 공격 그래프 렌더링 포함 Python CLI</li><li>DEF CON 스타일 연구 발표(22장 슬라이드) 패키징</li></ul>
+            <svg class="pipeline-diagram" viewBox="0 0 520 70" role="img" aria-label="Pipeline diagram">
               <g class="pipe-step"><rect x="4" y="14" width="112" height="42" rx="6"/><text x="60" y="40" text-anchor="middle">evidence</text></g>
               <path class="pipe-arrow" d="M120 35h24" marker-end="url(#arrow2)"/>
               <g class="pipe-step"><rect x="148" y="14" width="118" height="42" rx="6"/><text x="207" y="40" text-anchor="middle">ATT&amp;CK norm.</text></g>
@@ -498,54 +519,70 @@
 
       <!-- PUBLICATIONS -->
       <section class="panel" id="panel-publications" data-panel="publications">
-        <p class="section-label" data-r="// publications.bib" data-a="Publications"></p>
-        <h2>Selected Publications</h2>
+        <p class="section-label" data-en="// publications.bib" data-kr="// 논문.bib"></p>
+        <h2 class="t-h2" data-en="Selected Publications" data-kr="주요 논문"></h2>
         <div class="list">
           <article class="list-item">
-            <span class="tag tag-status">In Preparation</span>
+            <span class="tag tag-status lang-en">In Preparation</span>
+            <span class="tag tag-status lang-kr">준비 중</span>
             <h3>R-SPS: A Security, Privacy, and Safety Assessment Framework for Service Robots</h3>
-            <p>Target venue: ETRI Journal. Co-authors: MinYoung Park, HunHee Lee, Kyounggon Kim.</p>
+            <p class="lang-en">Target venue: ETRI Journal. Co-authors: MinYoung Park, HunHee Lee, Kyounggon Kim.</p>
+            <p class="lang-kr">투고 예정: ETRI Journal. 공저자: 박민영, 이훈희, 김경곤.</p>
           </article>
           <article class="list-item">
             <h3>FORESIGHT: A Unified Framework for Threat Modeling and Risk Assessment in Robotics and IoT</h3>
-            <p>NDSS Symposium co-located workshop SDIoTSec Poster, San Diego, Feb. 2025.</p>
+            <p class="lang-en">NDSS Symposium co-located workshop SDIoTSec Poster, San Diego, Feb. 2025.</p>
+            <p class="lang-kr">NDSS Symposium 부대 워크숍 SDIoTSec 포스터, 미국 샌디에이고, 2025.02.</p>
           </article>
           <article class="list-item">
             <h3>Practical APT Group Hash Unit Profiling Framework Using TTPs</h3>
-            <p>IEICE Transactions on Information and Systems, vol. E107-D, no. 12, Dec. 2024. SCIE.</p>
+            <p class="lang-en">IEICE Transactions on Information and Systems, vol. E107-D, no. 12, Dec. 2024. SCIE.</p>
+            <p class="lang-kr">IEICE Transactions on Information and Systems, vol. E107-D, no. 12, 2024.12. SCIE.</p>
           </article>
           <article class="list-item">
             <h3>Privacy Threat Modeling and Verification of LTE Phone Transmission in Autonomous Robots Using LINDDUN</h3>
-            <p>KIISC, Nov. 2024.</p>
+            <p class="lang-en">KIISC, Nov. 2024.</p>
+            <p class="lang-kr">정보보호학회, 2024.11.</p>
           </article>
           <article class="list-item">
             <h3>Security Requirements Derivation for Indoor Autonomous Driving Robots Based on STRIDE</h3>
-            <p>IEIE, Nov. 2024.</p>
+            <p class="lang-en">IEIE, Nov. 2024.</p>
+            <p class="lang-kr">전자공학회, 2024.11.</p>
           </article>
         </div>
       </section>
 
       <!-- TALKS -->
       <section class="panel" id="panel-talks" data-panel="talks">
-        <p class="section-label" data-r="// talks_and_awards.log" data-a="Talks &amp; Awards"></p>
-        <h2>Research presentations, lectures, and awards.</h2>
+        <p class="section-label" data-en="// talks_and_awards.log" data-kr="// 발표_및_수상.log"></p>
+        <h2 class="t-h2" data-en="Talks, Lectures &amp; Awards" data-kr="발표, 강연 &amp; 수상"></h2>
         <div class="talks-grid">
           <div>
-            <h3>Talks</h3>
+            <h3 class="lang-en">Talks &amp; Lectures</h3>
+            <h3 class="lang-kr">발표 &amp; 강연</h3>
             <ul>
-              <li>DefCamp, Romania — Research Presentation, Nov. 2025</li>
-              <li>NIPA Overseas Trainee Invitational Lecture, Sep. 2025</li>
-              <li>KISEC Hyundai AutoEver Lecture, Aug. 2025</li>
-              <li>NDSS SDIoTSec, San Diego — Poster Presentation, Feb. 2025</li>
+              <li class="lang-en">DefCamp, Romania — Research Presentation, Nov. 2025</li>
+              <li class="lang-kr">DefCamp, 루마니아 — 연구 발표, 2025.11</li>
+              <li class="lang-en">NIPA Overseas Trainee Invitational Lecture, Sep. 2025</li>
+              <li class="lang-kr">NIPA 해외 연수생 초청 강연, 2025.09</li>
+              <li class="lang-en">KISEC Hyundai AutoEver Lecture, Aug. 2025</li>
+              <li class="lang-kr">KISEC 현대오토에버 강연, 2025.08</li>
+              <li class="lang-en">NDSS SDIoTSec, San Diego — Poster Presentation, Feb. 2025</li>
+              <li class="lang-kr">NDSS SDIoTSec, 샌디에이고 — 포스터 발표, 2025.02</li>
             </ul>
           </div>
           <div>
-            <h3>Awards</h3>
+            <h3 class="lang-en">Awards</h3>
+            <h3 class="lang-kr">수상</h3>
             <ul>
-              <li>Future Korea Idea Contest, Finalist, Ministry of Economy and Finance, 2024</li>
-              <li>AI Ethics Competition, SK Telecom CEO Award, 2024</li>
-              <li>Korea Software Congress Undergraduate Paper Competition, Encouragement Award, 2024</li>
-              <li>Ericsson-LG Girls in ICT Hackathon, Best Award, 2023</li>
+              <li class="lang-en">Future Korea Idea Contest, Finalist, Ministry of Economy and Finance, 2024</li>
+              <li class="lang-kr">미래 한국 아이디어 공모전 본선, 기획재정부, 2024</li>
+              <li class="lang-en">AI Ethics Competition, SK Telecom CEO Award, 2024</li>
+              <li class="lang-kr">AI 윤리 경진대회, SK텔레콤 대표이사상, 2024</li>
+              <li class="lang-en">Korea Software Congress Undergraduate Paper Competition, Encouragement Award, 2024</li>
+              <li class="lang-kr">한국소프트웨어종합학술대회 학부생 논문 경진대회, 장려상, 2024</li>
+              <li class="lang-en">Ericsson-LG Girls in ICT Hackathon, Best Award, 2023</li>
+              <li class="lang-kr">에릭슨-LG Girls in ICT 해커톤, 최우수상, 2023</li>
             </ul>
           </div>
         </div>
@@ -553,8 +590,8 @@
 
       <!-- CONTACT -->
       <section class="panel" id="panel-contact" data-panel="contact">
-        <p class="section-label" data-r="// contact.sh" data-a="Contact"></p>
-        <h2>Open to research collaboration, projects, talks, and mentoring.</h2>
+        <p class="section-label" data-en="// contact.sh" data-kr="// 연락처.sh"></p>
+        <h2 class="t-h2" data-en="Open to research collaboration, projects, talks, and mentoring." data-kr="연구 협업, 프로젝트, 강연, 멘토링 제안을 환영합니다."></h2>
         <div class="contact-actions">
           <a class="button primary" href="mailto:bobconsultantcy@gmail.com">bobconsultantcy@gmail.com</a>
           <a class="button" href="https://www.linkedin.com/in/chaeyoung-klara-kim/" target="_blank" rel="noreferrer">LinkedIn</a>
@@ -562,7 +599,8 @@
         </div>
         <div class="tlp-badge">
           <span class="tlp-swatch"></span>
-          <span>This page is rated <strong>TLP:CLEAR</strong> — public, share freely.</span>
+          <span class="lang-en">This page is rated <strong>TLP:CLEAR</strong> — public, share freely.</span>
+          <span class="lang-kr">이 페이지는 <strong>TLP:CLEAR</strong> 등급 — 공개 정보, 자유롭게 공유 가능.</span>
         </div>
         <p class="footer-prompt"><span class="t-prompt">klara@security:~$</span> exit<span class="cursor"></span></p>
         <p class="copyright">© <span id="year"></span> ChaeYoung "Klara" Kim. All rights reserved.</p>
@@ -572,27 +610,27 @@
   </div>
 </div>
 
-<!-- Terminal overlay -->
+<!-- Terminal -->
 <div class="terminal-overlay" id="terminalOverlay" hidden>
   <div class="terminal-window">
     <div class="terminal-titlebar">
       <span class="dot dot-red"></span><span class="dot dot-amber"></span><span class="dot dot-green"></span>
       <span class="terminal-title">klara@security: ~</span>
-      <button class="terminal-close" id="terminalCloseBtn" aria-label="Close terminal">✕</button>
+      <button class="terminal-close" id="terminalCloseBtn" aria-label="Close">✕</button>
     </div>
     <div class="terminal-body" id="terminalBody">
       <p class="t-line"><span class="t-prompt">klara@security:~$</span> whoami</p>
-      <p class="t-line t-output">ChaeYoung "Klara" Kim — Cyber Risk &amp; Compliance Consultant / Robot·IoT·CPS Security Researcher</p>
+      <p class="t-line t-output">ChaeYoung "Klara" Kim — Cyber Risk &amp; Compliance / Robot·IoT·CPS Security Researcher</p>
       <p class="t-line t-hint">type <code>help</code> to see available commands</p>
     </div>
     <div class="terminal-inputline">
       <span class="t-prompt">klara@security:~$</span>
-      <input id="terminalInput" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="Terminal command input" placeholder="type a command..."/>
+      <input id="terminalInput" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="type a command..."/>
     </div>
   </div>
 </div>
 
-<!-- Robot mascot -->
+<!-- Mascot -->
 <div id="mascot" aria-hidden="true">
   <div id="mascot-bubble" class="mascot-bubble"></div>
   <svg id="mascot-svg" viewBox="0 0 48 60" xmlns="http://www.w3.org/2000/svg">
