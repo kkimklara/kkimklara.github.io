@@ -16,7 +16,18 @@ function setMode(mode) {
   if (qaTagline)   qaTagline.textContent   = mode === "researcher"
     ? "Cyber Risk & Compliance · Robot/IoT/CPS Security"
     : "Cyber Security Consultant · IT Audit · ISMS · SOC 2 · HIPAA";
+  // Update nav label text
+  document.querySelectorAll(".nav-label").forEach(el => {
+    el.textContent = mode === "researcher" ? el.dataset.r : el.dataset.a;
+  });
+  // Update section labels
+  document.querySelectorAll(".section-label[data-r]").forEach(el => {
+    el.textContent = mode === "researcher" ? el.dataset.r : el.dataset.a;
+  });
 }
+
+// Init labels on load
+setMode("researcher");
 
 modeBtns.forEach(btn => btn.addEventListener("click", () => setMode(btn.dataset.mode)));
 
@@ -149,7 +160,7 @@ const mapPins  = document.querySelectorAll(".map-pin");
 const pinCards = document.querySelectorAll(".pin-card");
 
 function closeAllCards() {
-  pinCards.forEach(c => c.classList.remove("is-open"));
+  pinCards.forEach(c => { c.style.display = "none"; c.classList.remove("is-open"); });
 }
 
 mapPins.forEach(pin => {
@@ -160,14 +171,20 @@ mapPins.forEach(pin => {
     if (!card) return;
     const isOpen = card.classList.contains("is-open");
     closeAllCards();
-    if (!isOpen) card.classList.add("is-open");
+    if (!isOpen) {
+      card.style.display = "block";
+      card.classList.add("is-open");
+    }
   });
 });
 
 pinCards.forEach(card => {
   card.addEventListener("click", e => e.stopPropagation());
   const closeBtn = card.querySelector(".pin-card-close");
-  if (closeBtn) closeBtn.addEventListener("click", () => card.classList.remove("is-open"));
+  if (closeBtn) closeBtn.addEventListener("click", () => {
+    card.style.display = "none";
+    card.classList.remove("is-open");
+  });
 });
 
 document.addEventListener("click", closeAllCards);
