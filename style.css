@@ -36,6 +36,22 @@
 [data-mode="en"] .lang-kr { display: none !important; }
 [data-mode="kr"] .lang-en { display: none !important; }
 
+
+/* Korean text improvements */
+[data-mode="kr"] body,
+[data-mode="kr"] p,
+[data-mode="kr"] li,
+[data-mode="kr"] h2,
+[data-mode="kr"] h3 {
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+[data-mode="kr"] .about-copy p,
+[data-mode="kr"] .timeline-item li,
+[data-mode="kr"] .card p {
+  line-height: 1.85;
+}
+
 html, body { height: 100%; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: .001ms !important; transition-duration: .001ms !important; }
@@ -188,11 +204,7 @@ code {
 
 /* ===== Section labels (mode-aware) ===== */
 .section-label { font-family: var(--mono); font-size: .76rem; font-weight: 600; color: var(--accent); margin-bottom: .8rem; display: block; }
-[data-mode="en"] .section-label::before { content: attr(data-r); }
-[data-mode="kr"]    .section-label::before { content: attr(data-a); }
 
-[data-mode="en"] .nav-label::before { content: attr(data-r); }
-[data-mode="kr"]    .nav-label::before { content: attr(data-a); }
 
 /* ===== Main panels ===== */
 .app-main { flex: 1; min-width: 0; position: relative; }
